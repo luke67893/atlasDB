@@ -16,4 +16,10 @@ _Planning_ | Building | Testing | Finished
 - Tagging for documents (custom tags)
 - Detailed information for documents on hover
 
+## Technology
+
+- Will probably be written in Django
+- Passwords will be saved as crappy MD5 hashes (during development)
+- Database will be MySQL (later) and the webserver will probably be an Apache
+
 ~
