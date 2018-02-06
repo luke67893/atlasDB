@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+# Showing the changelog post tool in the admin interface
+from .models import ChangelogPost
+admin.site.register(ChangelogPost)
