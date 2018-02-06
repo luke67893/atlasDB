@@ -18,11 +18,7 @@ _Planning and Building_ | Testing | Finished
 
 :x: Live view for Word, PDF, MD and Animations
 
-:x: Simple search function
-
-	:x: Search for tasks by tags
-
-	:x: Search for tasks by user
+:x: Simple search function (by tags and by users)
 
 :x: Tagging for documents (custom tags)
 
