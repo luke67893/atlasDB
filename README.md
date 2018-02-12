@@ -2,7 +2,7 @@
 
 ## Status
 
-_Planning_ | Building | Testing | Finished
+_Planning | Building_ | Testing | Finished
 
 ## Goals
 
@@ -21,5 +21,9 @@ _Planning_ | Building | Testing | Finished
 - Will probably be written in Django
 - Passwords will be saved as crappy MD5 hashes (during development)
 - Database will be MySQL (later) and the webserver will probably be an Apache
+
+## Status
+
+- Changelog working
 
 ~
