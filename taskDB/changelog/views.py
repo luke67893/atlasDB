@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import ChangelogPost 
+from .models import ChangelogPost
 
 # View for the overview over the changelog
 def index(request):
