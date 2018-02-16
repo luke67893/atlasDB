@@ -1,29 +1,32 @@
-# TaskDB - A simple webtool for task sharing in schools
+# AtlasDB - Simple webtool for task sharing in schools :school:
 
 ## Status
+:construction: :construction: :construction:
 
-_Planning | Building_ | Testing | Finished
+_Planning and Building_ | Testing | Finished
+
+:construction: :construction: :construction:
 
 ## Goals
 
-- Simple login system with as few as possible user groups (admins, teachers)
-- Folder structure with school_subjects as main folders and school_classes as sub folders
-- Upload feature for PDFs, Word Documents, Animations (GIF) and simple MD files
-- Live view for Word, PDF, MD and Animations
-- Simple search function
-	- Search for tasks by tags
-	- Search for tasks by user
-- Tagging for documents (custom tags)
-- Detailed information for documents on hover
+:x: Simple login system with as few as possible user groups (admins, teachers)
+
+:x: Folder structure with school_subjects as main folders and school_classes as sub folders
+
+:x: Upload feature for PDFs, Word Documents, Animations (GIF) and simple MD files
+
+:x: Live view for Word, PDF, MD and Animations
+
+:x: Simple search function (by tags and by users)
+
+:x: Tagging for documents (custom tags)
+
+:x: Detailed information for documents on hover
+
 
 ## Technology
 
-- Will probably be written in Django
-- Passwords will be saved as crappy MD5 hashes (during development)
+- Django (Python)
 - Database will be MySQL (later) and the webserver will probably be an Apache
-
-## Status
-
-- Changelog working
 
 ~
