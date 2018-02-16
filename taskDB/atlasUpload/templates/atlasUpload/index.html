@@ -17,11 +17,37 @@
 			color: white;
 		}
 	</style>
+	<script>
+		function uploadFunction(){
+			var inputData = document.getElementById("uploadData");
+			var txt = "";
+			if ('files' in inputData) {
+				if (inputData.files.lenght == 0) {
+					document.getElementById("textField").innerHTML = "Bitte wählen Sie eine oder mehr Dateien aus."
+				}
+				else {					
+					for (var i = 0; i < inputData.files.length; i++){
+						var file = inputData.files[i];
+						if (file.type == 'text/plain'){
+						}
+						txt += file.name + " (" + file.type + ")<br>";
+					}
+					document.getElementById("textField").innerHTML = txt;
+				}
+			} else {
+				document.getElementById("textField").innerHTML = "Fehler bei der Übermittlung. Bitte versuchen Sie es erneut.";
+			}
+		}
+	</script>
 </head>
 <body>
 	<h1 class="center-align">AtlasDB Aufgabenupload</h1>
 	<div id="uploadField">
-		<font size="5"><p align="center">Drag here to upload</p></font>
+		<input type="file" id="uploadData" accept=".doc,.docx,.pdf,.txt,.md,.gif" multiple size="50" onchange="uploadFunction()">
+		<p id="textField"></p>
 	</div>
+	<!--
+		<font size="5" id="textField"><p align="center">Click here to upload</p></font>
+	-->
 </body>
 </html>
