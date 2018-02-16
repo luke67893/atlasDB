@@ -4,4 +4,4 @@ from django.http import HttpResponse
 # Create your views here.
 
 def upload(request):
-	return render(request, 'atlasUpload/index.html')
+    return render(request, 'atlasUpload/index.html')
