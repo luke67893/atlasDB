@@ -26,7 +26,8 @@ _Planning and Building_ | Testing | Finished
 
 ## Technology
 
-- Django (Python)
-- Database will be MySQL (later) and the webserver will probably be an Apache
+- Language: Django (Python, HTML, JS, CSS)
+- Database: MySQL (later)
+- Webserver:  Apache
 
 ~
