@@ -7,7 +7,6 @@ _Planning and Building_ | Testing | Finished
 
 :construction: :construction: :construction:
 
-
 ## Goals
 
 :x: Simple login system with as few as possible user groups (admins, teachers)
