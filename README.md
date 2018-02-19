@@ -29,4 +29,22 @@ _Planning and Building_ | Testing | Finished
 - Django (Python)
 - Database will be MySQL (later) and the webserver will probably be an Apache
 
+## How to get this running
+
+### Preinstall
+
+- Python (w. pip)
+- Webbrowser
+- XAMPP (MySQL-Server)
+
+### Install
+
+- `pip install Django==2.0.2`
+- Install a MySQL-Connector for Python/ Django
+- Create MySQL-Database named `atlas_db`
+- Open a console window in `/taskDB/` and execute `python manage.py automigrate` to evaluate the data structure of the database
+- Type `python manage.py migrate` to import the structure into your database
+- To run the server type `python manage.py runserver`
+--> This is just for testing but should give you a proper overview
+
 ~
