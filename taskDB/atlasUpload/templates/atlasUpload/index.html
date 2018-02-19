@@ -18,24 +18,18 @@
 		}
 	</style>
 	<script>
-		function uploadFunction(){
-			var inputData = document.getElementById("uploadData");
-			var txt = "";
-			if ('files' in inputData) {
-				if (inputData.files.lenght == 0) {
-					document.getElementById("textField").innerHTML = "Bitte wählen Sie eine oder mehr Dateien aus."
-				}
-				else {					
-					for (var i = 0; i < inputData.files.length; i++){
-						var file = inputData.files[i];
-						if (file.type == 'text/plain'){
-						}
-						txt += file.name + " (" + file.type + ")<br>";
-					}
-					document.getElementById("textField").innerHTML = txt;
+		function upload(){
+			var inputDataRaw = document.getElementById("uploadData");
+			if ('files' in inputDataRaw) {
+				if (inputDataRaw.files.length == 1) {
+					var inputData = inputDataRaw.files[0];
+					// Print name of the uploaded document
+					document.getElementById("textField").innerHTML = inputData.name;
+				} else {
+					document.getElementById("textField").innerHTML = "Fehler: Zu viele oder zu wenig Dateien ausgewählt.";
 				}
 			} else {
-				document.getElementById("textField").innerHTML = "Fehler bei der Übermittlung. Bitte versuchen Sie es erneut.";
+				document.getElementById("textField").innerHTML = "Fehler: Auswahl fehlerhaft.";
 			}
 		}
 	</script>
@@ -43,7 +37,7 @@
 <body>
 	<h1 class="center-align">AtlasDB Aufgabenupload</h1>
 	<div id="uploadField">
-		<input type="file" id="uploadData" accept=".doc,.docx,.pdf,.txt,.md,.gif" multiple size="50" onchange="uploadFunction()">
+		<input type="file" id="uploadData" accept=".doc,.docx,.pdf,.txt,.md,.gif" size="50" onchange="upload()">
 		<p id="textField"></p>
 	</div>
 	<!--
