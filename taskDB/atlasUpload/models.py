@@ -4,7 +4,7 @@ class Task(models.Model):
 	aufgabenname = models.CharField(max_length=255)
 	lehrer = models.CharField(max_length=255)
 	uploadDate = models.DateTimeField('Date published')
-	dataPath = models.CharField(max_length=255)
+	docfile = models.FileField(upload_to='documents/%Y/%m/%d')
 	thumbnailPath = models.CharField(max_length=255)
 	deleted = False
 	def __str__(self):
