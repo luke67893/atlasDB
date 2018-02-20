@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
 	<title>AtlasDB - Upload</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 	<style type="text/css">
@@ -12,32 +13,25 @@
 			padding-top: 15%;
 			padding-bottom: 15%;
 		}
-
-		#uploadField:hover {
-			color: white;
-		}
 	</style>
-	<script>
-		function upload(){
-			var inputDataRaw = document.getElementById("uploadData");
-			if ('files' in inputDataRaw) {
-				if (inputDataRaw.files.length == 1) {
-					var inputData = inputDataRaw.files[0];
-					// Print name of the uploaded document
-					document.getElementById("textField").innerHTML = inputData.name;
-				} else {
-					document.getElementById("textField").innerHTML = "Fehler: Zu viele oder zu wenig Dateien ausgewählt.";
-				}
-			} else {
-				document.getElementById("textField").innerHTML = "Fehler: Auswahl fehlerhaft.";
-			}
-		}
-	</script>
 </head>
 <body>
 	<h1 class="center-align">AtlasDB Aufgabenupload</h1>
 	<div id="uploadField">
-		<input type="file" id="uploadData" accept=".doc,.docx,.pdf,.txt,.md,.gif" size="50" onchange="upload()">
+		<form action="{% url "upload" %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <p>{{ form.non_field_errors }}</p>
+
+            <p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
+
+            <p>
+                {{ form.docfile.errors }}
+                {{ form.docfile }}
+            </p>
+
+            <p><input type="submit" value="Upload"/></p>
+        </form>
 		<p id="textField"></p>
 	</div>
 	<!--
