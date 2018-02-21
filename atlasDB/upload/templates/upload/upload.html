@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hochladen - AtlasDB</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+</head>
+<body>
+	<h1 align="center">Upload</h1>
+	<form action="/upload/" method="post" enctype="multipart/form-data">
+		<p>{% csrf_token %}</p>
+   		<p>{{ form.titel }}</p>
+   		<p>{{ form.lehrer }}</p>
+		<p>{{ form.datensatz }}</p>
+   		<input type="submit" value="Hochladen" />
+	</form>
+</body>
+</html>
