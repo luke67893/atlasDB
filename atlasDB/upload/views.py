@@ -8,7 +8,7 @@ def upload(request):
 	if request.method == 'POST':
 		form = UploadForm(request.POST, request.FILES)
 		if form.is_valid():
-			newTask = Aufgabe(titel=request.POST['titel'], lehrer=request.POST['lehrer'], datensatz=request.FILES['datensatz'])
+			newTask = Aufgabe(titel=request.POST['titel'], lehrer=request.POST['lehrer'], tags=request.POST['tags'], datensatz=request.FILES['datensatz'])
 			newTask.save()
 			return HttpResponseRedirect('success/')
 	else:
