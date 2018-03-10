@@ -5,4 +5,4 @@ class UploadForm(forms.Form):
 	titel = forms.CharField(label='Aufgabentitel', max_length=255)
 	lehrer = forms.CharField(label='Lehrer', max_length=255)
 	datensatz = forms.FileField(label='Datei')
-	tags = forms.ModelMultipleChoiceField(Tag)
+	tags = forms.ModelMultipleChoiceField(queryset=Tag.objects.all())

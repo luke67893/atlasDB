@@ -37,7 +37,11 @@
    		Lehrer:
     		<p>{{ form.lehrer }}</p>
     	<p>Datensatz: {{ form.datensatz }}</p>
-    	<p>Tags: {{ form.tags }}</p>
+    	<p>Tags:
+    		{% for tag in form.tags %}
+				{{ tag }}
+			{% endfor %}
+		</p>
    		<div id="button"><input id="BTNupload" type="submit" value="Hochladen" /></div>
 	</form>
 </body>
