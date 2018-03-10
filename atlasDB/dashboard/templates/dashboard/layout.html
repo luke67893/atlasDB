@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Dashboard</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+	</head>
+	<body>
+		<h1 class="center-align">Alle Aufgaben - Überblick</h1>
+		{% block content %}
+			<ul class="collection">
+				{% for task in all_tasks %}
+					<li class="collection-item"><a href="aufgabe/{{task.id}}">{{ task.titel }} ({{ task.lehrer }})</a> - <a href="{{ task.datensatz }}">Download</a></li>
+				{% endfor %}
+			</ul>
+		{% endblock %}
+	</body>
+</html> 

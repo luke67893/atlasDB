@@ -13,7 +13,7 @@ _Planning and Building_ | Testing | Finished
 
 :x: Folder structure with school_subjects as main folders and school_classes as sub folders
 
-:x: Upload feature for PDFs, Word Documents, Animations (GIF) and simple MD files
+:white_check_mark: Upload feature for PDFs, Word Documents, Animations (GIF) and simple MD files
 
 :x: Live view for Word, PDF, MD and Animations
 
@@ -30,7 +30,7 @@ _Planning and Building_ | Testing | Finished
 - Database: MySQL (later)
 - Webserver:  Apache
 
-## How to get this running
+## Install Guide
 
 ### Preinstall
 

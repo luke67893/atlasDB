@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('changelog/', include('changelog.urls')),
     path('upload/', include('upload.urls')),
+    path('dashboard/', include('dashboard.urls')),
 ]
