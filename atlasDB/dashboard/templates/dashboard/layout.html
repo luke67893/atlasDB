@@ -2,10 +2,13 @@
 <html>
 	<head>
 		<title>Dashboard</title>
+		<!--{% load static %}
+		<link rel="stylesheet" href="{% static "main.css" %}">-->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 	</head>
 	<body>
 		<h1 class="center-align">Alle Aufgaben - Überblick</h1>
+		<p align="center"><a href="/upload">Neue Aufgabe erstellen</a></p><br>
 		{% block content %}
 			<ul class="collection">
 				{% for task in all_tasks %}
