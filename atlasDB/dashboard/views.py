@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.contrib import staticfiles
 
 from upload.models import Aufgabe
 
