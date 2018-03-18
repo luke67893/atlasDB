@@ -14,7 +14,7 @@ class Aufgabe(models.Model):
 	lehrer = models.CharField(max_length=255)
 	datum = models.DateTimeField('Hochgeladen am', default=datetime.now)
 	datensatz = models.FileField(upload_to='Aufgaben/%Y/%m')
-	tags = models.ManyToManyField(Tag, blank=True)
+	# tags = models.ManyToManyField(Tag, blank=True)
 	def __str__(self):
 		return self.titel
 	class Meta:

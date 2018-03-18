@@ -1,0 +1,22 @@
+#BTNupload{
+	color: black;
+	background-color: white;
+	border: none;
+	border-radius: 5px;
+	font-size: 3em;
+	margin-bottom: 1%;
+}
+#button{
+	text-align: center;
+}
+#BTNupload:hover{
+	background-color: orange;
+}
+#uploadForm{
+	font-size: 1.5em;
+	width: 97%;
+	margin: auto;
+	border-radius: 5px;
+	background-color: lightblue;
+	padding: 0.5%;
+}

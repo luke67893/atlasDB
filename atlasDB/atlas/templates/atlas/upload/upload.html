@@ -2,33 +2,11 @@
 <html>
 <head>
 	<title>Hochladen - AtlasDB</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'main.css' %}" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-	<style type="text/css">
-		#BTNupload{
-			color: black;
-			background-color: white;
-			border: none;
-			border-radius: 5px;
-			font-size: 3em;
-			margin-bottom: 1%;
-		}
-		#button{
-			text-align: center;
-		}
-		#BTNupload:hover{
-			background-color: orange;
-		}
-		#uploadForm{
-			font-size: 1.5em;
-			width: 97%;
-			margin: auto;
-			border-radius: 5px;
-			background-color: lightblue;
-			padding: 0.5%;
-		}
-	</style>
 </head>
-<body bgcolor="grey">
+<body>
 	<h2 align="center">Neue Aufgabe erstellen</h2>
 	<form id="uploadForm" action="/upload/" method="post" enctype="multipart/form-data">
  		<p>{% csrf_token %}</p>
@@ -37,11 +15,11 @@
    		Lehrer:
     		<p>{{ form.lehrer }}</p>
     	<p>Datensatz: {{ form.datensatz }}</p>
-    	<p>Tags:
+    	<!--<p>Tags:
     		{% for tag in form.tags %}
 				{{ tag }}
 			{% endfor %}
-		</p>
+		</p>-->
    		<div id="button"><input id="BTNupload" type="submit" value="Hochladen" /></div>
 	</form>
 </body>
