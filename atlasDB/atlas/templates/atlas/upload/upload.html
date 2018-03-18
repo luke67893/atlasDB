@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Hochladen - AtlasDB</title>
-	{% load static %}
-	<link rel="stylesheet" type="text/css" href="{% static 'main.css' %}" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-</head>
-<body>
+{% extends 'atlas/layout.html' %}
+
+{% block content %}
 	<h2 align="center">Neue Aufgabe erstellen</h2>
 	<form id="uploadForm" action="/upload/" method="post" enctype="multipart/form-data">
  		<p>{% csrf_token %}</p>
@@ -22,5 +16,4 @@
 		</p>-->
    		<div id="button"><input id="BTNupload" type="submit" value="Hochladen" /></div>
 	</form>
-</body>
-</html>
+{% endblock %}
