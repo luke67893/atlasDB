@@ -14,27 +14,47 @@ def upload(request):
 			newTask.save()
 			return HttpResponseRedirect('success/')
 		else:
-			return HttpResponseRedirect('error/')
+			return HttpResponseRedirect('errorx1/')
 	else:
 		form = UploadForm()
-	return render(request, 'atlas/upload/upload.html', {'form': form})
+	context = {
+		'title': "AtlasDB - Aufgabenerstellung",
+		'form': form
+	}
+	return render(request, 'atlas/upload/upload.html', context)
 
 def success(request):
-	return render(request, 'atlas/upload/success.html')
+	context = {
+		'title': 'AtlasDB - Upload erfolgreich'
+	}
+	return render(request, 'atlas/upload/success.html', context)
 
-def error(request):
-	return render(request, 'atlas/upload/error.html')
+def errorx1(request):
+	context = {
+		'title': 'AtlasDB - Fehler X1'
+	}
+	return render(request, 'atlas/upload/errorx1.html', context)
 
 def dashboard(request):
 	all_tasks = Aufgabe.objects.all()
 	context = {
-		'all_tasks': all_tasks
+		'all_tasks': all_tasks,
+		'title': "AtlasDB - Dashboard",
 	}
-	return render(request, 'atlas/layout.html', context)
+	return render(request, 'atlas/dashboard.html', context)
 
 def aufgabe(request, id):
 	aufgabe = Aufgabe.objects.get(id=id)
 	context = {
-		'aufgabe': aufgabe
+		'aufgabe': aufgabe,
+		'title': "Aufgabe - " + aufgabe.titel,
 	}
 	return render(request, 'atlas/details.html', context)
+
+def download(request, id):
+	aufgabe = Aufgabe.objects.get(id=id)
+	context = {
+		'link': aufgabe.datensatz,
+		'title': "Download - " + aufgabe.titel
+	}
+	return render(request, 'atlas/download.html', context)

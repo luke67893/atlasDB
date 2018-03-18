@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Upload erfolgreich</title>
-</head>
-<body>
-	<h3>Die Aufgabe wurde erfolgreich erstellt.</h3>
-	<a href="/dashboard">Zum Dashboard</a> || <a href="/upload"> Zurück zum Uploadformular</a>
+{% extends 'atlas/layout.html' %}
 
-</body>
-</html>
+{% block content %}
+	<h3 align="center">Die Aufgabe wurde erfolgreich erstellt.</h3>
+	<p><a href="/dashboard">Zum Dashboard</a> || <a href="/upload"> Zurück zum Uploadformular</a></p>
+{% endblock %}
