@@ -4,7 +4,6 @@ from .models import ChangelogPost
 
 # View for the overview over the changelog
 def index(request):
-	# return HttpResponse("Hello World")
 	changelog = ChangelogPost.objects.all()[:10]
 	context = {
 		'title': 'Letzte Änderungen',
