@@ -1,8 +1,28 @@
+{% load staticfiles %}
+<!DOCTYPE html>
 <html>
   <head>
-    <title></title>
+    <title>{% block title %} {% endblock %}</title>
+    <link href="{% static 'userinterface/mainstyle.css' %}" rel="stylesheet">
   </head>
 
   <body>
+      <div id="header">
+        <div id="leftSide">
+          hey
+        </div>
+        <div id="middle">
+          LOGO
+        </div>
+        <div id="rightSide">
+          {% if user.is_authenticated %}
+              <p>Welcome, {{ user.username }}</p>
+          {% endif %}
+        </div>
+      </div>
+<br>
+      <div id="main">
+      {% block content %} {% endblock %}
+      </div>
   </body>
 </html>
