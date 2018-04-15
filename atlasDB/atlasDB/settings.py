@@ -7,18 +7,18 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '%mh7qnwy=)3s__nt$cgn#5avnr)b14r1dteoozfkr#p$enyue('
+SECRET_KEY = '!v6xmy*d8txtc6%n(z4v68c*j@05hcn1x7#3x5ps7i7d*t$=8o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
 
+
 # Application definition
 
 INSTALLED_APPS = [
-    'changelog',
-    'atlas',
+    'userinterface',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -57,13 +57,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'atlasDB.wsgi.application'
 
+
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'atlas_DB',
+        'NAME': 'atlasdb',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost',
@@ -89,8 +90,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
