@@ -5,10 +5,10 @@ from django.contrib.auth.decorators import login_required
 from .models import Task
 
 def welcome(request):
-    return(HttpResponse("Hello World."))
+    return(render(request, 'userinterface/main_template.html'))
 
 def login(request):
-    return(render(request, 'userinterface/main_template.html'))
+    return(render(request, 'userinterface/login_form.html'))
 
 def logout(request):
     return(HttpResponse("Logout Page."))
