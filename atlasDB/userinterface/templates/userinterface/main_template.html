@@ -4,12 +4,13 @@
   <head>
     <title>{% block title %} {% endblock %}</title>
     <link href="{% static 'userinterface/mainstyle.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
   </head>
 
   <body>
       <div id="header">
         <div id="leftSide">
-          hey
+          TEST - VERSION 0.1
         </div>
         <div id="middle">
           LOGO
@@ -17,12 +18,18 @@
         <div id="rightSide">
           {% if user.is_authenticated %}
               <p>Welcome, {{ user.username }}</p>
+          {% else %}
+              <p><a href="/login">Log In</a></p>
           {% endif %}
         </div>
       </div>
-<br>
+
       <div id="main">
       {% block content %} {% endblock %}
+      </div>
+
+      <div id="footer">
+        @NAME OF THE COOPERATION 2018 | <a href="">Impressum</a>
       </div>
   </body>
 </html>
