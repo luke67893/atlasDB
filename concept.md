@@ -23,7 +23,16 @@ Views:
 
 Models:
 - Tasks
+  - Teacher (ForeignKey)
+  - UploadDate (AutoNow)
+  - LastChanged (AutoUpdate)
+  - TaskName (CharField)
+  - Document (docfile)
+  - Stage (Integer Range 1 - 13)
+  - Subject (ForeignKey)
 - Teachers (Django.Users)
 - Subjects
-- Stages
+  - SubjectName
 - Tags
+  - TagName
+  - TagColor (hexadecimal)
