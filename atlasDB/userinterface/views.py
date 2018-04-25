@@ -18,5 +18,16 @@ def user_logout(request):
 
 @login_required
 def user_home(request):
-	# my_tasks = Task.objects.all()
-	return(render(request, 'userinterface/home.html'))
+	alltasks = Task.objects.all()
+	context = {
+		'tasks': alltasks
+	}
+	return render(request, 'userinterface/home.html', context)
+
+@login_required
+def my_tasks(request):
+	my_tasks = Task.objects.filter(teacher=request.user)
+	context = {
+		'tasks': my_tasks
+	}
+	return render(request, 'userinterface/my_tasks.html', context)
