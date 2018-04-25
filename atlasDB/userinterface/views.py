@@ -37,7 +37,7 @@ def my_tasks(request):
 def upload(request):
 	if request.method == "POST":
 		new_task = Task(teacher=request.user)
-		form = UploadForm(instance=new_task, data=request.POST)
+		form = UploadForm(instance=new_task, data=request.POST, files=request.FILES)
 		if form.is_valid():
 			form.save()
 			return redirect('user_home')
