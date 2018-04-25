@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.conf.urls import url
 
 from .models import Task
+from .forms import UploadForm
 
 def welcome(request):
 	if request.user.is_authenticated:
@@ -31,3 +32,15 @@ def my_tasks(request):
 		'tasks': my_tasks
 	}
 	return render(request, 'userinterface/my_tasks.html', context)
+
+@login_required
+def upload(request):
+	if request.method == "POST":
+		new_task = Task(teacher=request.user)
+		form = UploadForm(instance=new_task, data=request.POST)
+		if form.is_valid():
+			form.save()
+			return redirect('user_home')
+	else:
+		form = UploadForm()
+	return render(request, 'userinterface/upload.html', { 'form': form })

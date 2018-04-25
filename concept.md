@@ -1,6 +1,6 @@
-Concept for AtlasDB - DRAFT
+# Concept for AtlasDB - DRAFT
 
-Views:
+## Views:
 - Upload Form
   - Name of Task (Textfield)
   - Teacher (Automatically)
@@ -21,7 +21,7 @@ Views:
   - Add stages
   - Add tags
 
-Models:
+## Models:
 - Tasks
   - Teacher (ForeignKey)
   - UploadDate (AutoNow)
