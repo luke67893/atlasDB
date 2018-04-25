@@ -11,11 +11,11 @@ _Planning and Building_ | Testing | Finished
 
 ## Goals
 
-:x: Simple login system with as few as possible user groups (admins, teachers)
+:white_check_mark: Simple login system with as few as possible user groups (admins, teachers)
 
 :x: Folder structure with school_subjects as main folders and school_classes as sub folders
 
-:white_check_mark: Upload feature for PDFs, Word Documents, Animations (GIF) and simple MD files
+:x: Upload feature for PDFs, Word Documents, Animations (GIF) and simple MD files
 
 :x: Live view for Word, PDF, MD and Animations
 

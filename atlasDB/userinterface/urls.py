@@ -9,5 +9,6 @@ urlpatterns = [
 	path('logout/', LogoutView.as_view(), name="user_logout"),
 	path('home/', views.user_home, name="user_home"),
 	path('my_tasks/', views.my_tasks, name="my_tasks"),
+	path('upload/', views.upload, name="upload"),
 	path('', views.welcome, name="welcome"),
 ]
