@@ -3,7 +3,7 @@
 ## Status
 :construction: :construction: :construction:
 
-_Planning and Building_ | Testing | Finished
+Planning | _Building_ | Testing | Finished
 
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 
@@ -36,7 +36,7 @@ _Planning and Building_ | Testing | Finished
 
 ### Preinstall
 
-- Python (w. pip)
+- Python (w/ pip)
 - Webbrowser
 - XAMPP (MySQL-Server)
 
@@ -45,9 +45,10 @@ _Planning and Building_ | Testing | Finished
 - `pip install Django==2.0.2`
 - Install a MySQL-Connector for Python/ Django
 - Create MySQL-Database named `atlas_db`
-- Open a console window in `/taskDB/` and execute `python manage.py automigrate` to evaluate the data structure of the database
+- Open a console window in `/atlasDB/` and execute `python manage.py makemigrations` to evaluate the data structure of the database
 - Type `python manage.py migrate` to import the structure into your database
 - To run the server type `python manage.py runserver`
+
 --> This is just for testing but should give you a proper overview
 
 ~
