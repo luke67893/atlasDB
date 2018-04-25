@@ -1,11 +1,16 @@
-color 0A
 @echo off
+color 0A
+
+set pathproject=D:\Development\project_atlasDB\atlasDB
+set pathxampp=C:\XAMPP\
+
 echo Starting dev env...
 C:
-XAMPP\xampp_start.exe
+cd %pathxampp%
+xampp_start.exe
 "Sublime Text 3\subl.exe"
 D:
-cd %PROJECTPATH%
+cd %pathproject%
 start .
 start cmd.exe @cmd /k "python.exe manage.py runserver"
 echo Finished...
