@@ -8,7 +8,7 @@ from .models import Task
 def welcome(request):
 	if request.user.is_authenticated:
 		return redirect('user_home')
-	return(render(request, 'userinterface/main_template.html'))
+	return(render(request, 'userinterface/main.html'))
 
 def user_login(request):
 	return(render(request, 'userinterface/login_form.html'))
