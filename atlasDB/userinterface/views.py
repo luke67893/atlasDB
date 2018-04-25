@@ -1,19 +1,46 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
+from django.conf.urls import url
 
 from .models import Task
+from .forms import UploadForm
 
 def welcome(request):
-    return(render(request, 'userinterface/main_template.html'))
+	if request.user.is_authenticated:
+		return redirect('user_home')
+	return(render(request, 'userinterface/main.html'))
 
-def login(request):
-    return(render(request, 'userinterface/login_form.html'))
+def user_login(request):
+	return(render(request, 'userinterface/login_form.html'))
 
-def logout(request):
-    return(HttpResponse("Logout Page."))
+def user_logout(request):
+	return(HttpResponse("Logout Page."))
 
 @login_required
-def main(request):
-    # my_tasks = Task.objects.all()
-    return(HttpResponse("Shouldnt see this"))
+def user_home(request):
+	alltasks = Task.objects.all()
+	context = {
+		'tasks': alltasks
+	}
+	return render(request, 'userinterface/home.html', context)
+
+@login_required
+def my_tasks(request):
+	my_tasks = Task.objects.filter(teacher=request.user)
+	context = {
+		'tasks': my_tasks
+	}
+	return render(request, 'userinterface/my_tasks.html', context)
+
+@login_required
+def upload(request):
+	if request.method == "POST":
+		new_task = Task(teacher=request.user)
+		form = UploadForm(instance=new_task, data=request.POST, files=request.FILES)
+		if form.is_valid():
+			form.save()
+			return redirect('user_home')
+	else:
+		form = UploadForm()
+	return render(request, 'userinterface/upload.html', { 'form': form })

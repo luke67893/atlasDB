@@ -11,7 +11,7 @@ Planning | _Building_ | Testing | Finished
 
 ## Goals
 
-:x: Simple login system with as few as possible user groups (admins, teachers)
+:white_check_mark: Simple login system with as few as possible user groups (admins, teachers)
 
 :x: Folder structure with school_subjects as main folders and school_classes as sub folders
 
