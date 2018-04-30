@@ -51,7 +51,9 @@ def stages(request):
 
 @login_required
 def stage(request, id):
+	taskfilter = Task.objects.filter(stage=id)
 	context = {
-		"id": id
+		"id": id,
+		"tasks": taskfilter
 	}
 	return render(request, 'userinterface/stage.html', context)
