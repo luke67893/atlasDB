@@ -12,5 +12,6 @@ urlpatterns = [
 	path('upload/', views.upload, name="upload"),
 	path('stages/', views.stages, name="stages"),
 	path('stage_<int:id>/', views.stage, name="stage"),
+	path('task/<int:id>/', views.details, name="task"),
 	path('', views.welcome, name="welcome"),
 ]
