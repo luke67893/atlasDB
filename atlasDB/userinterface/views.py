@@ -44,3 +44,14 @@ def upload(request):
 	else:
 		form = UploadForm()
 	return render(request, 'userinterface/upload.html', { 'form': form })
+
+@login_required
+def stages(request):
+	return render(request, 'userinterface/stageoverview.html')
+
+@login_required
+def stage(request, id):
+	context = {
+		"id": id
+	}
+	return render(request, 'userinterface/stage.html', context)
