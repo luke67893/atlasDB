@@ -10,4 +10,26 @@
 
 {% block content %}
 	<h2>Stage {{ id }}</h2>
+	<p>Recent tasks:
+	</p>
+
+	<table>
+        <thead>
+          <tr>
+              <th>Task Name</th>
+              <th>Author</th>
+              <th>Upload Date</th>
+          </tr>
+        </thead>
+
+        <tbody>
+        	{% for task in tasks %}
+				<tr>
+					<td>{{ task.task_name }}</td>
+					<td>{{ task.teacher }}</td>
+					<td>{{ task.uploaded_at }}</td>
+				</tr>
+			{% endfor %}
+        </tbody>
+      </table>
 {% endblock %}
