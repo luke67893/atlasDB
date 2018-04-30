@@ -57,3 +57,11 @@ def stage(request, id):
 		"tasks": taskfilter
 	}
 	return render(request, 'userinterface/stage.html', context)
+
+@login_required
+def details(request, id):
+	task = Task.objects.get(id=id)
+	context = {
+		"task": task
+	}
+	return render(request, 'userinterface/details.html', context)
