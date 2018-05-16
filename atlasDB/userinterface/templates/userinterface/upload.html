@@ -1,11 +1,6 @@
 {% extends "userinterface/main_template.html" %}
 
-{% block pagetitle %}
-	AtlasDB - Upload
-{% endblock %}
-
 {% block content %}
-	<h1>Add a task</h1>
 	<form role="form" method="post" action="/upload/" enctype="multipart/form-data">
 		{{ form }}
 		{% csrf_token %}
