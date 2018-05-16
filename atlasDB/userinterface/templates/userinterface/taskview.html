@@ -1,15 +1,11 @@
 {% extends "userinterface/main_template.html" %}
 
-{% block title %}
-	Home - AtlasDB
-{% endblock %}
-
 {% block pagetitle %}
 	Welcome, {{ user.username }}
 {% endblock %}
 
 {% block content %}
-	<h1>All tasks</h1>
+	<h1>{{ headline }}</h1>
 
 	<table>
         <thead>
@@ -25,7 +21,7 @@
         <tbody>
         	{% for task in tasks %}
 				<tr>
-					<td><a>{{ task.task_name }}</a></td>
+					<td><a href="/task/{{ task.id }}">{{ task.task_name }}</a></td>
 					<td>{{ task.teacher }}</td>					
 					<td>{{ task.subject }}</td>
 					<td>{{ task.stage }}</td>

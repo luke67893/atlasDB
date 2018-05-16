@@ -9,29 +9,39 @@ from .forms import UploadForm
 def welcome(request):
 	if request.user.is_authenticated:
 		return redirect('user_home')
-	return(render(request, 'userinterface/main.html'))
+	context = {
+		'ptitle': "Welcome to atlasDB"
+	}
+	return render(request, 'userinterface/main.html', context)
 
 def user_login(request):
-	return(render(request, 'userinterface/login_form.html'))
+	context = {
+		'ptitle': "Login"
+	}
+	return render(request, 'userinterface/login_form.html', context)
 
 def user_logout(request):
-	return(HttpResponse("Logout Page."))
+	return HttpResponse("Logout Page.")
 
 @login_required
 def user_home(request):
 	alltasks = Task.objects.all()
 	context = {
-		'tasks': alltasks
+		'headline': "All tasks",
+		'tasks': alltasks,
+		'ptitle': "Home - " + request.user.username
 	}
-	return render(request, 'userinterface/home.html', context)
+	return render(request, 'userinterface/taskview.html', context)
 
 @login_required
 def my_tasks(request):
 	my_tasks = Task.objects.filter(teacher=request.user)
 	context = {
-		'tasks': my_tasks
+		'headline': "Your tasks (" + request.user.username + ")",
+		'tasks': my_tasks,
+		'ptitle': "My Tasks"
 	}
-	return render(request, 'userinterface/my_tasks.html', context)
+	return render(request, 'userinterface/taskview.html', context)
 
 @login_required
 def upload(request):
@@ -47,21 +57,27 @@ def upload(request):
 
 @login_required
 def stages(request):
-	return render(request, 'userinterface/stageoverview.html')
+	context = {
+		'ptitle': "Stageoverview"
+	}
+	return render(request, 'userinterface/stageoverview.html', context)
 
 @login_required
 def stage(request, id):
 	taskfilter = Task.objects.filter(stage=id)
 	context = {
-		"id": id,
-		"tasks": taskfilter
+		'id': id,
+		'tasks': taskfilter,
+		'headline': "Stage " + str(id),
+		'ptitle': "Stage " + str(id)
 	}
-	return render(request, 'userinterface/stage.html', context)
+	return render(request, 'userinterface/taskview.html', context)
 
 @login_required
 def details(request, id):
 	task = Task.objects.get(id=id)
 	context = {
-		"task": task
+		'task': task,
+		'ptitle': "Task - " + task.task_name
 	}
 	return render(request, 'userinterface/details.html', context)
