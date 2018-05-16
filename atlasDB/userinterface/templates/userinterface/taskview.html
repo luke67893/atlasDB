@@ -1,33 +1,31 @@
 {% extends "userinterface/main_template.html" %}
 
-{% block pagetitle %}
-	Welcome, {{ user.username }}
-{% endblock %}
-
 {% block content %}
-	<h1>{{ headline }}</h1>
+{% if tasknumber == 0 %}
+<h2><b>Error:</b> No tasks created yet.</h2>
+{% else %}        
+<table>
+  <thead>
+    <tr>
+      <th>Task Name</th>
+      <th>Author</th>
+      <th>Subject</th>
+      <th>Stage</th>
+      <th>Upload Date (Last Change)</th>
+    </tr>
+  </thead>
 
-	<table>
-        <thead>
-          <tr>
-              <th>Task Name</th>
-              <th>Author</th>              
-              <th>Subject</th>
-              <th>Stage</th>
-              <th>Upload Date (Last Change)</th>
-          </tr>
-        </thead>
-
-        <tbody>
-        	{% for task in tasks %}
-				<tr>
-					<td><a href="/task/{{ task.id }}">{{ task.task_name }}</a></td>
-					<td>{{ task.teacher }}</td>					
-					<td>{{ task.subject }}</td>
-					<td>{{ task.stage }}</td>
-					<td>{{ task.uploaded_at }} ({{ task.last_changed_at }})</td>
-				</tr>
-			{% endfor %}
-        </tbody>
-      </table>
+  <tbody>
+   {% for task in tasks %}
+   <tr>
+     <td><a href="/task/{{ task.id }}">{{ task.task_name }}</a></td>
+     <td>{{ task.teacher }}</td>					
+     <td>{{ task.subject }}</td>
+     <td>{{ task.stage }}</td>
+     <td>{{ task.uploaded_at }} <i>({{ task.last_changed_at }})</i></td>
+   </tr>
+   {% endfor %}
+ </tbody>
+</table>
+{% endif %}
 {% endblock %}

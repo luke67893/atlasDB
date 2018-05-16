@@ -106,3 +106,5 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL="user_home"
 LOGOUT_REDIRECT_URL="welcome"
 LOGIN_URL="user_login"
+MEDIA_ROOT = 'Tasks/'
+MEDIA_URL = '/download/'

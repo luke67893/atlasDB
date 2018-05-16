@@ -1,9 +1,5 @@
 {% extends "userinterface/main_template.html" %}
 
-{% block pagetitle %}
-	Login
-{% endblock %}
-
 {% block content %}
 	<form role="from" method="post" action="/login/">
 		{% csrf_token %}
