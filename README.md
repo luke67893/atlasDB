@@ -1,4 +1,4 @@
-# AtlasDB - Simple webtool for task sharing in schools :school:
+# AtlasDB - Simple webtool for task sharing in schools
 
 ## Status
 :construction: :construction: :construction:
