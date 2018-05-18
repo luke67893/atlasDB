@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>{% block title %} {% endblock %}</title>
+  <title>{{ ptitle }}</title>
   <link href="{% static 'userinterface/mainstyle.css' %}" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -11,19 +11,22 @@
 <body>
   <nav>
     <div class="nav-wrapper">
-      <a class="brand-logo" href="/home/"><i class="material-icons">home</i>{% block pagetitle %} {% endblock %}</a>
+      <a class="brand-logo" href="/home/"><i class="material-icons">home</i>AtlasDB</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="">Help</a></li>
         {% if user.is_authenticated %}
           <li><a href="/upload/">Upload</a></li>
+          <li><a href="/stages/">Stages</a></li>
+          <li><a href="/subjects/">Subjects</a></li>
           <li><a href="/my_tasks/">My Tasks</a></li>
-          <li><a href="/logout/">Logout</a></li>
+          <li><a href="/logout/">Logout ({{ user.username }})</a></li>
           {% else %}
           <li><a href="/login/">Log In</a></li>
         {% endif %}
       </ul>
     </div>
   </nav>
+    <h2>{{ pheadline }}</h2>
     {% block content %} {% endblock %}
   <footer class="page-footer">
     <div class="container">
