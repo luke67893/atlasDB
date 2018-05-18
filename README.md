@@ -1,4 +1,4 @@
-# AtlasDB - Simple webtool for task sharing in schools :school:
+# AtlasDB - Simple webtool for task sharing in schools
 
 ## Status
 :construction: :construction: :construction:
@@ -13,7 +13,7 @@ Planning | _Building_ | Testing | Finished
 
 :white_check_mark: Simple login system with as few as possible user groups (admins, teachers)
 
-:x: Folder structure with school_subjects as main folders and school_classes as sub folders
+:white_check_mark: Folder structure with school_subjects as main folders and school_classes as sub folders
 
 :x: Upload feature for PDFs, Word Documents, Animations (GIF) and simple MD files
 
