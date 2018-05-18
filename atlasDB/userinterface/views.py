@@ -3,7 +3,7 @@ from django.http import HttpResponse, Http404
 from django.contrib.auth.decorators import login_required
 from django.conf.urls import url
 
-from .models import Task
+from .models import Task, Subject
 from .forms import UploadForm
 
 # For downloads
@@ -71,19 +71,58 @@ def upload(request):
 @login_required
 def stages(request):
 	context = {
-		'ptitle': "Stageoverview",
+		'ptitle': "Stage Overview",
 		'pheadline': "All stages"
 	}
 	return render(request, 'userinterface/stageoverview.html', context)
 
 @login_required
-def stage(request, id):
-	taskfilter = Task.objects.filter(stage=id)
+def stage(request, stagenumber):
+	subjects = Subject.objects.all()
+	taskfilter = Task.objects.filter(stage=stagenumber)
 	context = {
-		'id': id,
+		'stage': stagenumber,
 		'tasks': taskfilter,
-		'ptitle': "Stage " + str(id),
-		'pheadline': "Stage " + str(id)
+		'ptitle': "Filter: Stage " + str(stagenumber),
+		'pheadline': "Filter: Stage " + str(stagenumber),
+		'subjects': subjects,
+		'tasknumber': len(taskfilter)
+	}
+	return render(request, 'userinterface/taskview.html', context)
+
+@login_required
+def subjects(request):
+	subjects = Subject.objects.all()
+	context = {
+		'ptitle': "Subject Overview",
+		'pheadline': "All subjects",
+		'subjects': subjects
+	}
+	return render(request, 'userinterface/overview.html', context)
+
+@login_required
+def subject(request, subject):
+	subject_id = Subject.objects.get(subject_name=subject)
+	taskfilter = Task.objects.filter(subject_id=subject_id)
+	context = {
+		'subject': subject,
+		'tasks': taskfilter,
+		'ptitle': "Filter: Subject " + subject,
+		'pheadline': "Filter: Subject " + subject,
+		'tasknumber': len(taskfilter)
+	}
+	return render(request, 'userinterface/taskview.html', context)
+
+@login_required
+def stagesubject(request, stagenumber, subject):
+	subject_id = Subject.objects.get(subject_name=subject)
+	taskfilter = Task.objects.filter(stage=stagenumber, subject_id=subject_id)
+	context = {
+		'subject': subject,
+		'tasks': taskfilter,
+		'ptitle': "Filter: Stage " + str(stagenumber) + " and subject " + subject,
+		'pheadline': "Filter: Stage " + str(stagenumber) + " and subject " + subject,
+		'tasknumber': len(taskfilter)
 	}
 	return render(request, 'userinterface/taskview.html', context)
 
