@@ -23,14 +23,14 @@ Planning | _Building_ | Testing | Finished
 
 :x: Tagging for documents (custom tags)
 
-:x: Detailed information for documents on hover
+:x: ~~ Detailed information for documents on hover ~~
 
 
 ## Technology
 
 - Language: Django (Python, HTML, JS, CSS)
-- Database: MySQL (later)
-- Webserver:  Apache
+- Database: MySQL
+- Webserver: Apache (later)
 
 ## Install Guide
 
