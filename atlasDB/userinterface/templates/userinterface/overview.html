@@ -1,0 +1,10 @@
+{% extends "userinterface/main_template.html" %}
+
+{% block content %}
+	<div class="container" id="stages">
+	{% for subject in subjects %}
+      <a href="/subject_{{ subject }}/"><p class="stages">{{ subject }}</p></a>
+    {% endfor %}
+	</div>
+	<div id="blocker"></div>
+{% endblock %}
