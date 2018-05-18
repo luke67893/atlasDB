@@ -23,7 +23,7 @@ Planning | _Building_ | Testing | Finished
 
 :x: Tagging for documents (custom tags)
 
-:x: ~~ Detailed information for documents on hover ~~
+:x: ~~Detailed information for documents on hover~~
 
 
 ## Technology
