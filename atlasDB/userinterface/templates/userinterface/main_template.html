@@ -15,13 +15,14 @@
     <div class="nav-wrapper">
       <a class="brand-logo" href="/home/"><i class="material-icons">home</i>AtlasDB</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="/help/">Help</a></li>
+        <li><a href="/help/"><i class="material-icons">help</i></a></li>
         {% if user.is_authenticated %}
-          <li><a href="/upload/">Upload</a></li>
-          <li><a href="/stages/">Stages</a></li>
-          <li><a href="/subjects/">Subjects</a></li>
-          <li><a href="/my_tasks/">My Tasks</a></li>
-          <li><a href="/logout/">Logout ({{ user.username }})</a></li>
+          <li><a href="/upload/"><i class="material-icons">cloud_upload</i></a></li>
+          <li><a href="/search/"><i class="material-icons">search</i></a></li>
+          <li><a href="/stages/"><i class="material-icons">school</i></a></li>
+          <li><a href="/subjects/"><i class="material-icons">folder</i></a></li>
+          <li><a href="/my_tasks/"><i class="material-icons">person</i></a></li>
+          <li><a href="/logout/" id="userkey"><i class="material-icons">vpn_key</i></a></li>
           {% else %}
           <li><a href="/login/">Log In</a></li>
         {% endif %}
