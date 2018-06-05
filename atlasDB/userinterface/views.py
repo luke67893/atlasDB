@@ -68,11 +68,16 @@ def upload(request):
 
 @login_required
 def stages(request):
+	stages = []
+	for i in range(1,14):
+		stages.append(i)
+
 	context = {
 		'ptitle': "Stage Overview",
-		'pheadline': "All stages"
+		'pheadline': "All stages",
+		'stages': stages
 	}
-	return render(request, 'userinterface/stageoverview.html', context)
+	return render(request, 'userinterface/overview.html', context)
 
 @login_required
 def stage(request, stagenumber):
