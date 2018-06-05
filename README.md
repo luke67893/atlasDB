@@ -37,18 +37,22 @@ Planning | _Building_ | Testing | Finished
 ### Preinstall
 
 - Python (w/ pip)
-- Webbrowser
-- XAMPP (MySQL-Server)
 
-### Install
+### Install testing environment
 
 - `pip install Django==2.0.2`
-- Install a MySQL-Connector for Python/ Django
-- Create MySQL-Database named `atlas_db`
-- Open a console window in `/atlasDB/` and execute `python manage.py makemigrations` to evaluate the data structure of the database
-- Type `python manage.py migrate` to import the structure into your database
+- Install a DB connector for Django
+- Clone this project
+- Create superuser (and users)
+- Adjust database connector in `settings.py`
+- Open a console window in `/atlasDB/` and execute `python manage.py makemigrations` and `python manage.py migrate` to migrate data structure to the database
+- Adjust help site in `templates/userinterface/help.html` and impressum under `templates/userinterface/impressum.html`
+- Adjust bottom line watermark (YOUR COMPANY NAME) in `main_temlate.html`
+- Add your custom favicon in `/atlasDB/userinterface/static/userinterface`
 - To run the server type `python manage.py runserver`
 
---> This is just for testing but should give you a proper overview
+Have fun adjusting your own version
+
+--> **This is just for testing but should give you a proper overview**
 
 ~

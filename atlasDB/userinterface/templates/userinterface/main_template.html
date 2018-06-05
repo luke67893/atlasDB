@@ -4,6 +4,7 @@
 <head>
   <title>{{ ptitle }}</title>
   <link href="{% static 'userinterface/mainstyle.css' %}" rel="stylesheet">
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'userinterface/icon.ico' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
@@ -14,7 +15,7 @@
     <div class="nav-wrapper">
       <a class="brand-logo" href="/home/"><i class="material-icons">home</i>AtlasDB</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="">Help</a></li>
+        <li><a href="/help/">Help</a></li>
         {% if user.is_authenticated %}
           <li><a href="/upload/">Upload</a></li>
           <li><a href="/stages/">Stages</a></li>
