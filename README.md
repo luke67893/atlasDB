@@ -46,7 +46,7 @@ Planning | _Building_ | Testing | Finished
 - Create superuser (and users)
 - Adjust database connector in `settings.py`
 - Open a console window in `/atlasDB/` and execute `python manage.py makemigrations` and `python manage.py migrate` to migrate data structure to the database
-- Adjust help site in `templates/userinterface/help.html` and impressum under `templates/userinterface/impressum.html`
+- Adjust help site in `templates/userinterface/help.html` and impressum under `templates/userinterface/impressum.html` and main site (welcome site) under `templates/userinterface/main.html`
 - Adjust bottom line watermark (YOUR COMPANY NAME) in `main_temlate.html`
 - Add your custom favicon in `/atlasDB/userinterface/static/userinterface`
 - To run the server type `python manage.py runserver`
