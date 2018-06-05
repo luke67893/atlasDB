@@ -54,11 +54,9 @@ def my_tasks(request):
 @login_required
 def upload(request):
 	if request.method == "POST":
-		new_task = Task(teacher=request.user)
-		form = UploadForm(instance=new_task, data=request.POST, files=request.FILES)
-		if form.is_valid():
-			form.save()
-			return redirect('user_home')
+		new_task = Task(teacher=request.user, task_name=request.POST['task_name'], subject=Subject.objects.get(subject_name=request.POST['subject']), stage=request.POST['stage'], document=request.FILES['document'])
+		new_task.save()
+		return redirect('user_home')
 	else:
 		form = UploadForm()
 	context = {
