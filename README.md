@@ -15,7 +15,7 @@ Planning | _Building_ | Testing | Finished
 
 :white_check_mark: Folder structure with school_subjects as main folders and school_classes as sub folders
 
-:x: Upload feature for PDFs, Word Documents, Animations (GIF) and simple MD files
+:white_check_mark: Upload feature for PDFs, Word Documents, Animations (GIF) and simple MD files
 
 :x: Live view for Word, PDF, MD and Animations
 
