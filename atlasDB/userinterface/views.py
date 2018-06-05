@@ -29,6 +29,20 @@ def user_login(request):
 def user_logout(request):
 	return HttpResponse("Logout Page.")
 
+def help(request):
+	context = {
+		'ptitle': "Help",
+		'pheadline': "Help for atlasDB"
+	}
+	return render(request, 'userinterface/help.html', context)
+
+def impressum(request):
+	context = {
+		'ptitle': "Impressum",
+		'pheadline': "Impressum"
+	}
+	return render(request, 'userinterface/impressum.html', context)
+
 @login_required
 def user_home(request):
 	alltasks = Task.objects.all()

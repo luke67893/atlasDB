@@ -17,5 +17,7 @@ urlpatterns = [
 	path('stage_<int:stagenumber>/subject_<str:subject>/', views.stagesubject, name="stagesubject"),
 	path('task/<int:id>/', views.details, name="task"),
 	path('download/<path:path>', views.download, name="download"),
+	path('help/', views.help, name="help"),
+	path('impressum/', views.impressum, name="impressum"),
 	path('', views.welcome, name="welcome"),
 ]
