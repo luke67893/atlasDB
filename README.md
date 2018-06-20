@@ -23,8 +23,6 @@ Planning | _Building_ | Testing | Finished
 
 :x: Tagging for documents (custom tags)
 
-:x: ~~Detailed information for documents on hover~~
-
 
 ## Technology
 
@@ -37,13 +35,14 @@ Planning | _Building_ | Testing | Finished
 ### Preinstall
 
 - Python (w/ pip)
+- Database (XAMPP, MySQL Server...)
 
 ### Install testing environment
 
 - `pip install Django==2.0.2`
-- Install a DB connector for Django
-- Clone this project
-- Create superuser (and users)
+- Install a DB connector for Django (i.e. `pip install mysql-python`)
+- Clone this project (`git clone https://bitbucket.org/creyd/project_atlasdb` or in SourceTree)
+- Create superusers and users
 - Adjust database connector in `settings.py`
 - Open a console window in `/atlasDB/` and execute `python manage.py makemigrations` and `python manage.py migrate` to migrate data structure to the database
 - Adjust help site in `templates/userinterface/help.html` and impressum under `templates/userinterface/impressum.html` and main site (welcome site) under `templates/userinterface/main.html`
