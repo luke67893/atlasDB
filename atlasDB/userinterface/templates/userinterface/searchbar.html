@@ -1,0 +1,13 @@
+{% extends "userinterface/main_template.html" %}
+
+{% block content %}
+	<script type="text/javascript">
+		function search(){
+			query = document.getElementById('searchquery').value
+			window.location.replace(query);
+		}	
+	</script>
+
+	<input formaction="URL" type="text" required minlength="1" id="searchquery" placeholder="Tasks to search">
+	<button onclick="search()">Search</button>
+{% endblock %}
