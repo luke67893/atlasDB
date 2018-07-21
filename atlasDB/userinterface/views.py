@@ -81,6 +81,26 @@ def upload(request):
 	return render(request, 'userinterface/upload.html', context)
 
 @login_required
+def searchoverview(request):
+	context = {
+		'ptitle': "Search",
+		'pheadline': "Search a task"
+	}
+	return render(request, 'userinterface/searchbar.html', context)
+
+@login_required
+def search(request, keyword):
+	results = Task.objects.filter(task_name__contains=keyword)
+	if len(results)==0:
+		raise Http404("No tasks found.")
+	context = {
+		'ptitle': "Search: " + str(keyword),
+		'pheadline': "Search: " + str(keyword),
+		'tasks': results
+	}
+	return render(request, 'userinterface/taskview.html', context)
+
+@login_required
 def stages(request):
 	stages = []
 	for i in range(1,14):
