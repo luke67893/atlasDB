@@ -19,7 +19,7 @@ Planning | _Building_ | Testing | Finished
 
 :x: Live view for Word, PDF, MD and Animations
 
-:x: Simple search function (by tags and by users)
+:white_check_mark: Simple search function
 
 :x: Tagging for documents (custom tags)
 
@@ -53,5 +53,9 @@ Planning | _Building_ | Testing | Finished
 Have fun adjusting your own version
 
 --> **This is just for testing but should give you a proper overview**
+
+## Known issues
+
+- When installing an environment there are problems with the dependencies! Working on a fix.
 
 ~
