@@ -1,10 +1,15 @@
 {% extends "userinterface/main_template.html" %}
 
 {% block content %}
+<div class="card small">
+
+
 	<form role="from" method="post" action="/login/">
 		{% csrf_token %}
 		<p>Please login now:</p>
 		{{ form }}
 	<br>
 	<button type="submit" class="btn btn-success">Sign In</button>
+	
+  </div>
 {% endblock %}

@@ -15,7 +15,7 @@ def welcome(request):
 		return redirect('user_home')
 	context = {
 		'ptitle': "Welcome to atlasDB",
-		'pheadline': "Hi there!"
+		'pheadline': ""
 	}
 	return render(request, 'userinterface/main.html', context)
 

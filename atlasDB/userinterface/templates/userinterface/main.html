@@ -1,5 +1,21 @@
 {% extends "userinterface/main_template.html" %}
 
 {% block content %}
-	Welcome to atlasDB BETA! This is a collaboration tool for teachers for sharing tasks for students via the internet.
+{% load staticfiles %}
+<div style="{
+	left: 50%;
+	width: 500px;
+	margin-left: -250px;
+	position: relative;
+}">
+<img class="responsive-img" src="{% static 'userinterface/images/logo.png' %}">
+</div>
+<style>
+body {
+    background-image: url("{% static 'userinterface/images/p1.jpg' %}");
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	background-color: black;
+}
+</style>
 {% endblock %}
