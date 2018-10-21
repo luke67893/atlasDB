@@ -10,6 +10,9 @@ from .forms import UploadForm
 import os
 from django.conf import settings
 
+def user_logout(request):
+	return HttpResponse("Logout Page.")
+
 def welcome(request):
 	if request.user.is_authenticated:
 		return redirect('user_home')
@@ -25,9 +28,6 @@ def user_login(request):
 		'pheadline': "Login to atlasDB"
 	}
 	return render(request, 'userinterface/login_form.html', context)
-
-def user_logout(request):
-	return HttpResponse("Logout Page.")
 
 def help(request):
 	context = {
@@ -45,9 +45,8 @@ def impressum(request):
 
 @login_required
 def user_home(request):
-	alltasks = Task.objects.all()
 	context = {
-		'tasks': alltasks,
+		'tasks': Task.objects.all(),
 		'ptitle': "Home - " + request.user.username,
 		'pheadline': "All tasks"
 	}
@@ -56,10 +55,9 @@ def user_home(request):
 @login_required
 def my_tasks(request):
 	my_tasks = Task.objects.filter(teacher=request.user)
-	tasknumber = len(my_tasks)
 	context = {
 		'tasks': my_tasks,
-		'tasknumber': tasknumber,
+		'tasknumber': len(my_tasks),
 		'ptitle': "My Tasks",
 		'pheadline': "Your tasks (" + request.user.username + ")"
 	}
@@ -71,10 +69,8 @@ def upload(request):
 		new_task = Task(teacher=request.user, task_name=request.POST['task_name'], subject=Subject.objects.get(subject_name=request.POST['subject']), stage=request.POST['stage'], document=request.FILES['document'])
 		new_task.save()
 		return redirect('user_home')
-	else:
-		form = UploadForm()
 	context = {
-		'form': form,
+		'form': UploadForm(),
 		'ptitle': "Upload",
 		'pheadline': "Upload"
 	}
@@ -103,9 +99,7 @@ def search(request, keyword):
 @login_required
 def stages(request):
 	stages = []
-	for i in range(1,14):
-		stages.append(i)
-
+	[ stages.append(i) for i in range(1,14) ]
 	context = {
 		'ptitle': "Stage Overview",
 		'pheadline': "All stages",
@@ -115,32 +109,29 @@ def stages(request):
 
 @login_required
 def stage(request, stagenumber):
-	subjects = Subject.objects.all()
-	taskfilter = Task.objects.filter(stage=stagenumber)
+	taskfilter = Task.objects.filter(stage=stagenumber) 
 	context = {
 		'stage': stagenumber,
 		'tasks': taskfilter,
 		'ptitle': "Filter: Stage " + str(stagenumber),
 		'pheadline': "Filter: Stage " + str(stagenumber),
-		'subjects': subjects,
+		'subjects': Subject.objects.all(),
 		'tasknumber': len(taskfilter)
 	}
 	return render(request, 'userinterface/taskview.html', context)
 
 @login_required
 def subjects(request):
-	subjects = Subject.objects.all()
 	context = {
 		'ptitle': "Subject Overview",
 		'pheadline': "All subjects",
-		'subjects': subjects
+		'subjects': Subject.objects.all()
 	}
 	return render(request, 'userinterface/overview.html', context)
 
 @login_required
 def subject(request, subject):
-	subject_id = Subject.objects.get(subject_name=subject)
-	taskfilter = Task.objects.filter(subject_id=subject_id)
+	subject_id, taskfilter = Subject.objects.get(subject_name=subject), Task.objects.filter(subject_id=subject_id)
 	context = {
 		'subject': subject,
 		'tasks': taskfilter,
@@ -166,14 +157,11 @@ def stagesubject(request, stagenumber, subject):
 @login_required
 def details(request, id):
 	task = Task.objects.get(id=id)
-	owner = 0
-	if str(task.teacher) == str(request.user.username):
-		owner = 1
 	context = {
 		'task': task,
 		'ptitle': "Task - " + task.task_name,
 		'pheadline': "Task " + task.task_name,
-		'owner': owner
+		'owner': [ 1 if str(task.teacher) == str(request.user.username) else 0 ]
 	}
 	return render(request, 'userinterface/details.html', context)
 
