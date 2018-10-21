@@ -1,3 +1,10 @@
+# Python
 __pycache__/
+__init__.py
+
+# Atlas DB
 Aufgaben/
 Tasks/
+
+# Django Default Config
+db.sqlite3
