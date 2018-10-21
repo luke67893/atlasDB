@@ -87,7 +87,7 @@ def searchoverview(request):
 @login_required
 def search(request, keyword):
 	results = Task.objects.filter(task_name__contains=keyword)
-	if len(results)==0:
+	if len(results) == 0:
 		raise Http404("No tasks found.")
 	context = {
 		'ptitle': "Search: " + str(keyword),
@@ -131,7 +131,7 @@ def subjects(request):
 
 @login_required
 def subject(request, subject):
-	subject_id, taskfilter = Subject.objects.get(subject_name=subject), Task.objects.filter(subject_id=subject_id)
+	taskfilter = Task.objects.filter(subject_id=Subject.objects.get(subject_name=subject))
 	context = {
 		'subject': subject,
 		'tasks': taskfilter,
@@ -143,8 +143,7 @@ def subject(request, subject):
 
 @login_required
 def stagesubject(request, stagenumber, subject):
-	subject_id = Subject.objects.get(subject_name=subject)
-	taskfilter = Task.objects.filter(stage=stagenumber, subject_id=subject_id)
+	taskfilter = Task.objects.filter(stage=stagenumber, subject_id=Subject.objects.get(subject_name=subject))
 	context = {
 		'subject': subject,
 		'tasks': taskfilter,
