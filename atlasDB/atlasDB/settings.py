@@ -98,8 +98,10 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 STATIC_URL = '/static/'
+
+LOGIN_URL = 'user_login'
 LOGIN_REDIRECT_URL = 'user_home'
 LOGOUT_REDIRECT_URL = 'welcome'
-LOGIN_URL = 'user_login'
-MEDIA_ROOT = 'Tasks/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR,'Tasks/')
 MEDIA_URL = '/download/'
