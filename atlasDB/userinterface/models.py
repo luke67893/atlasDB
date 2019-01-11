@@ -13,7 +13,8 @@ class Task(models.Model):
     task_name = models.CharField(max_length=255)
     document = models.FileField(upload_to='Tasks/%Y/%m')
     teacher = models.ForeignKey(User, related_name="teacher", on_delete=models.CASCADE)
-    subject = models.ForeignKey(Subject, on_delete=models.DO_NOTHING)
+    subject = models.ForeignKey(Subject, on_delete=models.DO_NOTHING, null=True, blank=True)
     stage = models.IntegerField(validators=[MaxValueValidator(13), MinValueValidator(1)])
+
     def __str__(self):
         return self.task_name
