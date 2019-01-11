@@ -5,7 +5,3 @@ __init__.py
 # Atlas DB
 Aufgaben/
 Tasks/
-
-# Django Default Config
-db.sqlite3
-atlasDB/db.sqlite3
