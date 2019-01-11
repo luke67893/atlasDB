@@ -1,4 +1,9 @@
+# Python
 __pycache__/
+__init__.py
+
+# Atlas DB
 Aufgaben/
-migrations/
 Tasks/
+
+db.sqlite3
