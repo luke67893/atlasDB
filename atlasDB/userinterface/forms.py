@@ -1,5 +1,5 @@
 from django import forms
-from .models import Task, Subject
+from .models import Subject
 
 class UploadForm(forms.Form):
 	task_name = forms.CharField(label='Task Title', max_length=255)	
