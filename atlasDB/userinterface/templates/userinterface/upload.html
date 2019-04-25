@@ -8,30 +8,10 @@
 		});
 	</script>
 	
-	<div id="uploadform">
-		<form role="form" method="post" action="/upload/" enctype="multipart/form-data">
-			<div class="row">
-				<div class="input-field col s12">
-					{{ form.task_name }}
-					<label for="task_name">Task title</label>
-				</div>
-			</div>
-			<div class="row">
-				<div class="input-field col s6">
-					{{ form.subject }}
-					<label>Subject Select</label>
-				</div>
+	<form role="from" id="taskForm" method="post" action="{% url 'upload' %}" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ form.as_p }}
 
-				<div class="input-field col s6">
-					{{ form.stage }}
-					<label>Stage Select</label>
-				</div>
-			</div>
-			<div class="row">
-				{{ form.document }}
-			</div>
-			{% csrf_token %}
-			<button class="btn btn-success" type="submit">Add task</button>
-		</form>
-	</div>
+		<button class="btn btn-success" type="submit">Hinzufügen</button>
+	</form>
 {% endblock %}
