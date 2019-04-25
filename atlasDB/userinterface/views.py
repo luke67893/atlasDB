@@ -52,7 +52,7 @@ def impressum(request):
 @login_required
 def user_home(request):
     context = {
-        'tasks': Task.objects.all(),
+        'tasks': 'Test',#Task.objects.all(),
         'ptitle': 'Home - ' + request.user.username,
         'pheadline': 'All tasks'
     }
