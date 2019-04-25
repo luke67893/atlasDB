@@ -12,7 +12,7 @@ SECRET_KEY = '!v6xmy*d8txtc6%n(z4v68c*j@05hcn1x7#3x5ps7i7d*t$=8o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['81.169.193.89', 'atlasdb.de']
 
 # Application definition
 
@@ -96,9 +96,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 STATIC_URL = '/static/'
-LOGIN_REDIRECT_URL="user_home"
-LOGOUT_REDIRECT_URL="welcome"
-LOGIN_URL="user_login"
-MEDIA_ROOT = 'Tasks/'
+
+LOGIN_URL = 'user_login'
+LOGIN_REDIRECT_URL = 'user_home'
+LOGOUT_REDIRECT_URL = 'welcome'
+
+MEDIA_ROOT = os.path.join(BASE_DIR,'Tasks/')
 MEDIA_URL = '/download/'
