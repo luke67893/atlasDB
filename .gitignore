@@ -6,4 +6,11 @@ __init__.py
 Aufgaben/
 Tasks/
 
+# Django database
 db.sqlite3
+
+# Startscripts
+startDjangoDev.cmd
+
+# Apple File System
+.DS_Store

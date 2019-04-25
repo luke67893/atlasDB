@@ -16,13 +16,13 @@ def user_logout(request):
 
 
 def welcome(request):
-    if request.user.is_authenticated:
-        return redirect('user_home')
-    context = {
-        'ptitle': 'Welcome to atlasDB',
-        'pheadline': 'Hi there!'
-    }
-    return render(request, 'userinterface/main.html', context)
+	if request.user.is_authenticated:
+		return redirect('user_home')
+	context = {
+		'ptitle': 'Welcome to atlasDB',
+		'pheadline': ''
+	}
+	return render(request, 'userinterface/main.html', context)
 
 
 def user_login(request):
