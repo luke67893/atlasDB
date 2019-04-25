@@ -4,7 +4,7 @@
 	<form role="from" method="post" action="/login/">
 		{% csrf_token %}
 		<p>Please login now:</p>
-		{{ form }}
+		{{ form.as_p }}
 	<br>
 	<button type="submit" class="btn btn-success">Sign In</button>
 {% endblock %}
