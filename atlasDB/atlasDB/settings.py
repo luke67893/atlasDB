@@ -12,7 +12,7 @@ SECRET_KEY = '!v6xmy*d8txtc6%n(z4v68c*j@05hcn1x7#3x5ps7i7d*t$=8o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['81.169.193.89', 'atlasdb.de']
+ALLOWED_HOSTS = ['127.0.0.1', '81.169.193.89', 'atlasdb.de']
 
 # Application definition
 
