@@ -10,14 +10,14 @@
         <b>Last changed</b> {{ task.last_changed_at }}<br>
         <b>Subject</b> {{ task.subject }}<br>
         <b>Stage</b> {{ task.stage }}<br>
-        {% if owner == 1 %}
+        {% if owner %}
           <b>You created this task</b>
         {% else %}
           <b>Teacher</b> {{ task.teacher }}
         {% endif %}
       </div>
       <div class="card-action">
-        <a href="/download/{{ task.document }}">Download</a>
+        <a href="{% url 'download' task.document %}">Download</a>
       </div>
     </div>
   </div>
