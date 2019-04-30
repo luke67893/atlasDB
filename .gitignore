@@ -1,6 +1,5 @@
 # Python
 __pycache__/
-__init__.py
 
 # Atlas DB
 Aufgaben/
@@ -14,3 +13,5 @@ startDjangoDev.cmd
 
 # Apple File System
 .DS_Store
+
+atlasDB/static/
