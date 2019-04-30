@@ -15,4 +15,4 @@ startDjangoDev.cmd
 # Apple File System
 .DS_Store
 
-atlasdb/static/
+atlasDB/static/
