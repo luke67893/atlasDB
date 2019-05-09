@@ -119,12 +119,10 @@ def search(request, keyword):
 
 @login_required
 def stages(request):
-    stages = []
-    [stages.append(i) for i in range(1, 14)]
     context = {
         'ptitle': 'Stage Overview',
         'pheadline': 'All stages',
-        'stages': stages
+        'stages': range(1, 14)
     }
     return render(request, 'userinterface/overview.html', context)
 
