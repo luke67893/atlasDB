@@ -26,36 +26,23 @@ Planning | _Building_ | Testing | Finished
 
 ## Technology
 
-- Language: Django (Python, HTML, JS, CSS)
-- Database: MySQL
-- Webserver: Apache (later)
+- Python
+- Django
 
 ## Install Guide
 
-### Preinstall
-
-- Python (w/ pip)
-- Database (XAMPP, MySQL Server...)
-
 ### Install testing environment
 
-- `pip install Django==2.0.2`
-- Install a DB connector for Django (i.e. `pip install mysql-python`)
-- Clone this project (`git clone https://bitbucket.org/creyd/project_atlasdb` or in SourceTree)
-- Create superusers and users
-- Adjust database connector in `settings.py`
-- Open a console window in `/atlasDB/` and execute `python manage.py makemigrations` and `python manage.py migrate` to migrate data structure to the database
-- Adjust help site in `templates/userinterface/help.html` and impressum under `templates/userinterface/impressum.html` and main site (welcome site) under `templates/userinterface/main.html`
-- Adjust bottom line watermark (YOUR COMPANY NAME) in `main_temlate.html`
-- Add your custom favicon in `/atlasDB/userinterface/static/userinterface`
+- Clone this project
+- `pip install -r requirements.txt`
+- Open a console window and execute `python manage.py migrate`
 - To run the server type `python manage.py runserver`
 
 Have fun adjusting your own version
 
 --> **This is just for testing but should give you a proper overview**
 
-## Known issues
+## Known Issues
 
-- When installing an environment there are problems with the dependencies! Working on a fix.
-
+None at the moment.
 ~
