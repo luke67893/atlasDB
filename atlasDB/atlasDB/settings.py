@@ -103,5 +103,5 @@ LOGIN_URL = 'user_login'
 LOGIN_REDIRECT_URL = 'user_home'
 LOGOUT_REDIRECT_URL = 'welcome'
 
-MEDIA_ROOT = os.path.join(BASE_DIR,'Tasks/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'Tasks/')
 MEDIA_URL = '/download/'

@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, Http404
 from django.contrib.auth.decorators import login_required
-from django.conf.urls import url
 
 from .models import Task, Subject
 from .forms import UploadForm
@@ -16,13 +15,13 @@ def user_logout(request):
 
 
 def welcome(request):
-	if request.user.is_authenticated:
-		return redirect('user_home')
-	context = {
-		'ptitle': 'Welcome to atlasDB',
-		'pheadline': ''
-	}
-	return render(request, 'userinterface/main.html', context)
+    if request.user.is_authenticated:
+        return redirect('user_home')
+    context = {
+        'ptitle': 'Welcome to atlasDB',
+        'pheadline': ''
+    }
+    return render(request, 'userinterface/main.html', context)
 
 
 def user_login(request):
@@ -84,7 +83,7 @@ def upload(request):
                 subject=form.cleaned_data['subject'],
                 stage=form.cleaned_data['stage'],
                 document=request.FILES['document']
-                )
+            )
             return redirect('user_home')
 
     context = {
