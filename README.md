@@ -6,8 +6,6 @@
 
 Planning | _Building_ | Testing | Finished
 
-:construction: :construction: :construction:
-
 ## Goals
 
 :white_check_mark: Simple login system with as few as possible user groups (admins, teachers)
@@ -25,7 +23,7 @@ Planning | _Building_ | Testing | Finished
 
 ## Technology
 
-- Python
+- Python 3
 - Django
 
 ## Install Guide
