@@ -1,4 +1,8 @@
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
+![Latest Release](https://img.shields.io/github/release/creyD/atlasDB.svg)
+[![Website](https://img.shields.io/website/http/atlasdb.de.svg?down_color=red&down_message=offline&up_message=online)](http://atlasdb.de)
+![Issues](https://img.shields.io/github/issues/creyD/atlasDB.svg)
+![Pull Requests](https://img.shields.io/github/issues-pr/creyD/atlasDB.svg)
 # AtlasDB - Simple webtool for task sharing in schools
 
 :construction: :construction: :construction:
