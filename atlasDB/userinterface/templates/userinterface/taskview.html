@@ -1,6 +1,11 @@
 {% extends "userinterface/main_template.html" %}
 
+{% block title %}{{ keywords }}{% endblock %}
+
+{% block headline %}{{ keywords }}{% endblock %}
+
 {% block content %}
+
 {% if tasknumber == 0 %}
 <h2 align="center"><b>Error:</b> There are no tasks to show.</h2>
 {% else %}

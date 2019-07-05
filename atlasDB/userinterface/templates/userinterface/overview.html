@@ -1,5 +1,9 @@
 {% extends "userinterface/main_template.html" %}
 
+{% block title %}{% if stages %}Stage Overview{% else %}Subject Overview{% endif %}{% endblock %}
+
+{% block headline %}{% if stages %}All stages{% else %}All subjects{% endif %}{% endblock %}
+
 {% block content %}
 	<div class="container" id="stages">
 	{% if subjects %}

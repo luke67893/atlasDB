@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>{{ ptitle }}</title>
+  <title>{% block title %}{% endblock %}</title>
   <link href="{% static 'userinterface/mainstyle.css' %}" rel="stylesheet">
   <link rel="shortcut icon" type="image/x-icon" href="{% static 'userinterface/icon.ico' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
@@ -33,7 +33,7 @@
 
   
   
-    <h2>{{ pheadline }}</h2>
+    <h2>{% block headline %}{% endblock %}</h2>
 
     <div class="container">
     {% block content %}
