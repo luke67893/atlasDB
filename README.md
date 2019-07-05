@@ -1,10 +1,9 @@
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 # AtlasDB - Simple webtool for task sharing in schools
 
-## Status
 :construction: :construction: :construction:
 
-Planning | _Building_ | Testing | Finished
+Planning | Building | _Testing_ | Finished
 
 ## Goals
 
@@ -26,13 +25,14 @@ Planning | _Building_ | Testing | Finished
 - Python 3
 - Django
 
-## Install Guide
+## Installation Guide
 
 ### Install testing environment
 
-- Clone this project
+- Clone this project and change to the folder
 - `pip install -r requirements.txt`
-- Open a console window and execute `python manage.py migrate`
+- Open a console window and execute `python atlasDB/manage.py migrate`
+- Create a user by typing `python atlasDB/manage.py createsuperuser`
 - To run the server type `python manage.py runserver`
 
 Have fun adjusting your own version
@@ -41,5 +41,4 @@ Have fun adjusting your own version
 
 ## Known Issues
 
-None at the moment.
-~
+See [Issues](https://github.com/creyD/atlasDB/issues) tab.
