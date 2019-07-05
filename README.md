@@ -27,17 +27,15 @@ Planning | Building | _Testing_ | Finished
 
 ## Installation Guide
 
-### Install testing environment
-
 - Clone this project and change to the folder
 - `pip install -r requirements.txt`
 - Open a console window and execute `python atlasDB/manage.py migrate`
 - Create a user by typing `python atlasDB/manage.py createsuperuser`
 - To run the server type `python manage.py runserver`
 
-Have fun adjusting your own version
-
 --> **This is just for testing but should give you a proper overview**
+
+Have fun adjusting your own version
 
 ## Known Issues
 
