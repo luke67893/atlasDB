@@ -22,7 +22,8 @@
           {% endif %}
       </div>
       <div class="card-action">
-        <a href="{% url 'download' task.document %}">Download</a>
+        <a href="{% url 'task_download' task.task_id %}">Download</a>
+        {% if owner %}<a href="{% url 'task_edit' task.task_id %}">Edit</a>{% endif %}
       </div>
     </div>
   </div>
