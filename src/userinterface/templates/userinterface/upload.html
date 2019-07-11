@@ -11,7 +11,7 @@
 			var instances = M.FormSelect.init(elems, classes="browser-default");
 		});
 	</script>
-	
+
 	<form role="from" id="taskForm" method="post" action="{% url 'upload' %}" enctype="multipart/form-data">
 		{% csrf_token %}
 		{{ form.as_p }}
