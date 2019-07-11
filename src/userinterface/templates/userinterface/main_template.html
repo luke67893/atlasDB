@@ -13,26 +13,24 @@
 <body>
   <nav>
     <div class="nav-wrapper red lighten-2" style="height: 5rem;">
-      <a href="/home/"><img alt="AtlasDB" style="height: 5rem;" src="{% static '/userinterface/images/logo.png' %}"></a>
+      <a href="{% url 'user_home' %}"><img alt="AtlasDB" style="height: 5rem;" src="{% static '/userinterface/images/logo.png' %}"></a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-	 <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="/help/"><i class="material-icons">help</i></a></li>
+	    <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="{% url 'help' %}"><i class="material-icons">help</i></a></li>
         {% if user.is_authenticated %}
-          <li><a href="/upload/"><i class="material-icons">cloud_upload</i></a></li>
-          <li><a href="/search/"><i class="material-icons">search</i></a></li>
-          <li><a href="/stages/"><i class="material-icons">school</i></a></li>
-          <li><a href="/subjects/"><i class="material-icons">folder</i></a></li>
-          <li><a href="/my_tasks/"><i class="material-icons">person</i></a></li>
-          <li><a href="/logout/" id="userkey"><i class="material-icons">vpn_key</i></a></li>
+          <li><a href="{% url 'upload' %}"><i class="material-icons">cloud_upload</i></a></li>
+          <li><a href="{% url 'search' %}"><i class="material-icons">search</i></a></li>
+          <li><a href="{% url 'stages' %}"><i class="material-icons">school</i></a></li>
+          <li><a href="{% url 'subjects' %}"><i class="material-icons">folder</i></a></li>
+          <li><a href="{% url 'my_tasks' %}"><i class="material-icons">person</i></a></li>
+          <li><a href="{% url 'user_logout' %}" id="userkey"><i class="material-icons">vpn_key</i></a></li>
           {% else %}
-          <li><a href="/login/">Log In</a></li>
+          <li><a href="{% url 'user_login' %}">Log In</a></li>
         {% endif %}
       </ul>
     </div>
   </nav>
 
-  
-  
     <h2>{% block headline %}{% endblock %}</h2>
 
     <div class="container">
@@ -40,17 +38,18 @@
 
     {% endblock %}
     </div>
+
     <footer class="page-footer red lighten-2" style="
       position: fixed;
       bottom:0;
       left:0;
       width:100%;">
     <div class="container">
-      © YOUR COMPANY NAME
+      © AtlasDB
       <script type="text/javascript">
         document.write(new Date().getFullYear())
       </script>
-      <a class="grey-text text-lighten-4 right" href="/impressum">Impressum</a>
+      <a class="grey-text text-lighten-4 right" href="{% url 'impressum' %}">Impressum</a>
     </div>
   </footer>
 

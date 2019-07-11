@@ -12,10 +12,10 @@
 		});
 	</script>
 
-	<form role="from" id="taskForm" method="post" action="{% url 'upload' %}" enctype="multipart/form-data">
+	<form role="from" id="taskForm" method="post" action="{% url 'task_edit' task.task_id %}" enctype="multipart/form-data">
 		{% csrf_token %}
 		{{ form.as_p }}
 
-		<button class="btn btn-success" type="submit">Upload</button>
+		<button class="btn btn-success" type="submit">Update</button>
 	</form>
 {% endblock %}

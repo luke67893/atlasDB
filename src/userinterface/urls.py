@@ -12,7 +12,8 @@ urlpatterns = [
     # Task views
     path('my_tasks/', views.my_tasks, name='my_tasks'),
     path('task/<int:taskid>/', views.details, name='task'),
-    path('download/<path:path>', views.download, name='download'),
+    path('task/<int:taskid>/edit', views.task_update, name='task_edit'),
+    path('task/<int:taskid>/download', views.task_download, name='task_download'),
 
     path('upload/', views.upload, name='upload'),
 

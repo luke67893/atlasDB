@@ -6,7 +6,7 @@
 
 {% block content %}
 <div class="card small">
-	<form role="from" method="post" action="/login/">
+	<form role="from" method="post" action="{% url 'user_login' %}">
 		{% csrf_token %}
 		<p>Please login now:</p>
 		{{ form.as_p }}

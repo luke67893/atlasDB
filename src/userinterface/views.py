@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, Http404
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import PermissionDenied
 
 from .models import Task, Subject
-from .forms import UploadForm
+from .forms import UploadForm, UpdateTask
 
 import os
 from django.conf import settings
@@ -22,7 +23,7 @@ def user_logout(request):
 def welcome(request):
     if request.user.is_authenticated:
         return redirect('user_home')
-    return render(request, 'userinterface/main.html')
+    return render(request, 'userinterface/welcome.html')
 
 
 # GENERAL
@@ -145,6 +146,18 @@ def search(request, keyword):
 
     return render(request, 'userinterface/taskview.html', context)
 
+# Edit Task
+@login_required
+def task_update(request, taskid):
+    task = Task.objects.get(task_id=taskid)
+    if str(task.teacher) == str(request.user.username):
+        form = UpdateTask(request.POST or None, instance=task)
+        if request.method == 'POST' and form.is_valid():
+            task = form.save()
+            return redirect(details, taskid)
+        return render(request, 'userinterface/update.html', {'form': form, 'task': task})
+    raise PermissionDenied
+
 
 # CONTENT UPLOAD
 @login_required
@@ -167,10 +180,10 @@ def upload(request):
     return render(request, 'userinterface/upload.html', {'form': form})
 
 
-# CONTENT DOWNLOAD
 @login_required
-def download(request, path):
-    file_path = os.path.join(settings.MEDIA_ROOT, path)
+def task_download(request, taskid):
+    task = Task.objects.get(task_id=taskid)
+    file_path = os.path.join(settings.MEDIA_ROOT, str(task.document))
     if os.path.exists(file_path):
         with open(file_path, 'rb') as file:
             response = HttpResponse(file.read(), content_type='application/octet-stream')

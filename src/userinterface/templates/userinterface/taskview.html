@@ -15,8 +15,8 @@
     {% endfor %}
   </div>
   <div id="blocker"></div>
-<!-- 
-  Above HTML will just show if there are subjects delivered  
+<!--
+  Above HTML will just show if there are subjects delivered
 !-->
 <table>
     <thead>
@@ -38,7 +38,7 @@
            <td>{{ task.subject }}</td>
            <td>{{ task.stage }}</td>
            <td>{{ task.uploaded_at }} <i>({{ task.last_changed_at }})</i></td>
-           <td><a href="{% url 'download' task.document %}"><i class="material-icons">file_download</i></a></td>
+           <td><a href="{% url 'task_download' task.task_id %}"><i class="material-icons">file_download</i></a></td>
          </tr>
          {% endfor %}
    </tbody>
