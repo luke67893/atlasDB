@@ -9,6 +9,8 @@ import os
 from django.conf import settings
 
 # USER HANDLING
+
+
 def user_login(request):
     return render(request, 'userinterface/login_form.html')
 
@@ -58,7 +60,7 @@ def my_tasks(request):
 
 @login_required
 def stages(request):
-    return render(request, 'userinterface/overview.html', { 'stages': range(1, 14) })
+    return render(request, 'userinterface/overview.html', {'stages': range(1, 14)})
 
 
 @login_required
@@ -78,7 +80,7 @@ def stage(request, stagenumber):
 
 @login_required
 def subjects(request):
-    return render(request, 'userinterface/overview.html', { 'subjects': Subject.objects.all() })
+    return render(request, 'userinterface/overview.html', {'subjects': Subject.objects.all()})
 
 
 @login_required
@@ -155,13 +157,14 @@ def upload(request):
             Task.objects.get_or_create(
                 teacher=request.user,
                 task_name=form.cleaned_data['task_name'],
+                task_description=form.cleaned_data['task_description'],
                 subject=form.cleaned_data['subject'],
                 stage=form.cleaned_data['stage'],
                 document=request.FILES['document']
             )
             return redirect('user_home')
 
-    return render(request, 'userinterface/upload.html', { 'form': form })
+    return render(request, 'userinterface/upload.html', {'form': form})
 
 
 # CONTENT DOWNLOAD
