@@ -39,7 +39,18 @@ class Tag(models.Model):
     tag_name = models.CharField(max_length=255, verbose_name='Tag')
     tag_color = models.CharField(max_length=6, verbose_name='Farbe')
 
+    def __str__(self):
+        return self.tag_name
+
+    class Meta:
+        verbose_name = "Tag"
+        verbose_name_plural = "Tags"
+
 
 class TaskTags(models.Model):
     tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
     task = models.ForeignKey(Task, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = "Task - Tag"
+        verbose_name_plural = "Task - Tags"
