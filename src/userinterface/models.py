@@ -24,7 +24,7 @@ class Task(models.Model):
     document = models.FileField(upload_to='Tasks/%Y/%m', verbose_name='Dateipfad')
     teacher = models.ForeignKey(User, related_name="teacher", on_delete=models.CASCADE, verbose_name='Lehrer')
     subject = models.ForeignKey(Subject, on_delete=models.DO_NOTHING, null=True, verbose_name='Fach')
-    stage = models.IntegerField(validators=[MaxValueValidator(13), MinValueValidator(1)], verbose_name='Klassenstufe')
+    stage = models.PositiveIntegerField(validators=[MinValueValidator(1), MaxValueValidator(13)], verbose_name='Klassenstufe')
 
     def __str__(self):
         return self.task_name
