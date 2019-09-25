@@ -32,3 +32,14 @@ class Task(models.Model):
     class Meta:
         verbose_name = "Aufgabe"
         verbose_name_plural = "Aufgaben"
+
+
+class Tag(models.Model):
+    tag_id = models.AutoField(primary_key=True)
+    tag_name = models.CharField(max_length=255, verbose_name='Tag')
+    tag_color = models.CharField(max_length=6, verbose_name='Farbe')
+
+
+class TaskTags(models.Model):
+    tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
+    task = models.ForeignKey(Task, on_delete=models.CASCADE)
