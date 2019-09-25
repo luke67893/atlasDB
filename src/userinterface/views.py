@@ -1,17 +1,19 @@
+# For handling errors and rendering
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, Http404
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
-
-from .models import Task, Subject
-from .forms import UploadForm, UpdateTask
-
-import os
 from django.conf import settings
 
+# For using custom forms and models
+from .models import Task, Subject, TaskTags
+from .forms import UploadForm, UpdateTask
+
+# For handling uploaded documents
+import os
+
+
 # USER HANDLING
-
-
 def user_login(request):
     return render(request, 'userinterface/login_form.html')
 
@@ -120,7 +122,8 @@ def details(request, taskid):
 
     context = {
         'task': task,
-        'owner': (True if str(task.teacher) == str(request.user.username) else False)
+        'owner': (True if str(task.teacher) == str(request.user.username) else False),
+        'tags': (TaskTags.objects.filter(task=task) if TaskTags.objects.filter(task=task).exists() else False)
     }
 
     return render(request, 'userinterface/details.html', context)
@@ -145,6 +148,7 @@ def search(request, keyword):
     }
 
     return render(request, 'userinterface/taskview.html', context)
+
 
 # Edit Task
 @login_required
