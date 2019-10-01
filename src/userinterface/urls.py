@@ -28,7 +28,7 @@ urlpatterns = [
     path('stage_<int:stagenumber>&subject_<int:subjectid>/', views.stagesubject, name='stagesubject'),
 
     # General, public views
-    path('help/', views.help, name='help'),
+    path('help/', views.help_page, name='help'),
     path('impressum/', views.impressum, name='impressum'),
     path('', views.welcome, name='welcome')
 ]
