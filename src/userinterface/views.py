@@ -27,7 +27,7 @@ def welcome(request):
 
 
 # GENERAL
-def help(request):
+def help_page(request):
     return render(request, 'userinterface/help.html')
 
 
