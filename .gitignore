@@ -18,3 +18,4 @@ atlasDB/static/
 
 # Virtualenv
 env/
+.env/
