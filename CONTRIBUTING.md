@@ -17,7 +17,7 @@ and check in with others. Somebody else is possibly working on it already!
 
 # LICENSE
 
-This project is distributed under the MIT License! By creating a PR with your code
+This project is distributed under the MPL-2.0 License! By creating a PR with your code
 it will fall under that license as well, please keep that in mind.
 
 # What should push
