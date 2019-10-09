@@ -160,9 +160,17 @@ def task_update(request, taskid):
     if str(task.teacher) == str(request.user.username):
         form = UpdateTask(request.POST or None, instance=task)
         if request.method == 'POST' and form.is_valid():
-            task = form.save()
+            form.save()
+            # Delete all current tags
+            TaskTags.objects.filter(task=task).delete()
+            # Add the new and kept tags
+            tags = json.loads(request.POST['tags'])
+            for tag in tags:
+                system_tag, created = Tag.objects.get_or_create(tag_name=tag)
+                TaskTags.objects.get_or_create(tag=system_tag, task=task)
+
             return redirect(details, taskid)
-        return render(request, 'userinterface/update.html', {'form': form, 'task': task})
+        return render(request, 'userinterface/update.html', {'form': form, 'task': task, 'tags': Tag.objects.all(), 'custom_tags': TaskTags.objects.filter(task=task)})
     raise PermissionDenied
 
 
