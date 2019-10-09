@@ -1,7 +1,7 @@
-<p align="center">
-<h1>AtlasDB</h1>
-<h3>Simple webtool for task sharing in schools</h3>
+<h1 align="center">AtlasDB</h1>
+<h3 align="center">Simple webtool for task sharing in schools</h3>
 
+<p align="center">
 [![LICENSE](https://img.shields.io/github/license/creyD/atlasDB)](https://github.com/creyD/atlasDB/blob/master/LICENSE.md)
 [![Website](https://img.shields.io/website/http/atlasdb.de.svg?down_color=red&down_message=offline&up_message=online)](http://atlasdb.de)
 ![Issues](https://img.shields.io/github/issues/creyD/atlasDB.svg)
