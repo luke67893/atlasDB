@@ -165,8 +165,8 @@ def task_update(request, taskid):
             # Add the new and kept tags
             tags = json.loads(request.POST['tags'])
             for tag in tags:
-                system_tag, created = Tag.objects.get_or_create(tag_name=tag)
-                TaskTags.objects.get_or_create(tag=system_tag, task=task)
+                system_tag = Tag.objects.get_or_create(tag_name=tag)
+                TaskTags.objects.get_or_create(tag=system_tag[0], task=task)
 
             return redirect(details, taskid)
         return render(request, 'userinterface/update.html', {'form': form, 'task': task, 'tags': Tag.objects.all(), 'custom_tags': TaskTags.objects.filter(task=task)})
@@ -181,7 +181,7 @@ def upload(request):
     if request.method == 'POST':
         form = UploadForm(request.POST, request.FILES)
         if form.is_valid():
-            task, created = Task.objects.get_or_create(
+            task = Task.objects.get_or_create(
                 teacher=request.user,
                 task_name=form.cleaned_data['task_name'],
                 task_description=form.cleaned_data['task_description'],
@@ -193,8 +193,8 @@ def upload(request):
             # Add the tags to the task
             tags = json.loads(request.POST['tags'])
             for tag in tags:
-                system_tag, created = Tag.objects.get_or_create(tag_name=tag)
-                TaskTags.objects.get_or_create(tag=system_tag, task=task)
+                system_tag = Tag.objects.get_or_create(tag_name=tag)
+                TaskTags.objects.get_or_create(tag=system_tag[0], task=task[0])
             return redirect(details, task.task_id)
 
     return render(request, 'userinterface/upload.html', {'form': form, 'tags': Tag.objects.all()})
