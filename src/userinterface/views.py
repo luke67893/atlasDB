@@ -6,14 +6,17 @@ from django.core.exceptions import PermissionDenied
 from django.conf import settings
 
 # For using custom forms and models
-from .models import Task, Subject, TaskTags
+from .models import Task, Subject, TaskTags, Tag
 from .forms import UploadForm, UpdateTask
 
 # For handling uploaded documents
 import os
 
+import json
 
 # USER HANDLING
+
+
 def user_login(request):
     return render(request, 'userinterface/login_form.html')
 
@@ -171,7 +174,7 @@ def upload(request):
     if request.method == 'POST':
         form = UploadForm(request.POST, request.FILES)
         if form.is_valid():
-            Task.objects.get_or_create(
+            task, created = Task.objects.get_or_create(
                 teacher=request.user,
                 task_name=form.cleaned_data['task_name'],
                 task_description=form.cleaned_data['task_description'],
@@ -179,9 +182,15 @@ def upload(request):
                 stage=form.cleaned_data['stage'],
                 document=request.FILES['document']
             )
+
+            # Add the tags to the task
+            test = json.loads(request.POST['tags'])
+            for tag in test:
+                system_tag, created = Tag.objects.get_or_create(tag_name=tag)
+                TaskTags.objects.get_or_create(tag=system_tag, task=task)
             return redirect('user_home')
 
-    return render(request, 'userinterface/upload.html', {'form': form})
+    return render(request, 'userinterface/upload.html', {'form': form, 'tags': Tag.objects.all()})
 
 
 @login_required
