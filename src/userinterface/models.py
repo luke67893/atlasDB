@@ -37,7 +37,7 @@ class Task(models.Model):
 class Tag(models.Model):
     tag_id = models.AutoField(primary_key=True)
     tag_name = models.CharField(max_length=255, verbose_name='Tag')
-    tag_color = models.CharField(max_length=6, verbose_name='Farbe')
+    tag_color = models.CharField(max_length=6, verbose_name='Farbe', null=True)
 
     def __str__(self):
         return self.tag_name

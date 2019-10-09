@@ -4,18 +4,62 @@
 
 {% block headline %}Upload a task{% endblock %}
 
-{% block content %}
-	<script type="text/javascript">
-		document.addEventListener('DOMContentLoaded', function() {
-			var elems = document.querySelectorAll('select');
-			var instances = M.FormSelect.init(elems, classes="browser-default");
-		});
-	</script>
+{% block header %}
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', function() {
+		var elems = document.querySelectorAll('select');
+		var instances = M.FormSelect.init(elems, classes="browser-default");
+	});
 
+	document.addEventListener('DOMContentLoaded', function() {
+	    var elems = document.querySelectorAll('.chips');
+			var options = {
+				"placeholder": "Enter tags here...",
+				"autocompleteOptions": {
+					data: {
+						{% for tag in tags %}
+						"{{ tag.tag_name }}": null,
+						{% endfor %}
+					},
+					limit: Infinity,
+					minLength: 1
+					}
+				};
+	    var instances = M.Chips.init(elems, options);
+	  });
+
+		function preSubmit(){
+			var tags = [];
+			var tag_field = document.getElementById('tag_field');
+			for (var i = 0; i < tag_field.children.length; i++) {
+				if (tag_field.children[i].className == "chip") {
+					var inner_string = tag_field.children[i].innerHTML;
+					var name = inner_string.split('<i');
+					tags.push(name[0]);
+				}
+			}
+			// Get rest of the form
+			var form_btn = document.getElementById("real_form_button");
+			var dataInput = document.getElementById("tags");
+			dataInput.value = JSON.stringify(tags);
+			form_btn.click();
+		}
+</script>
+{% endblock %}
+
+{% block content %}
 	<form role="from" id="taskForm" method="post" action="{% url 'upload' %}" enctype="multipart/form-data">
 		{% csrf_token %}
+		<button id="real_form_button" style="visibility: hidden;" type="submit"></button>
+		<input name="tags" id="tags" style="visibility: hidden;" type="text">
 		{{ form.as_p }}
 
-		<button class="btn btn-success" type="submit">Upload</button>
+		<h4>Tags</h4>
+		Separate tags by pressing ENTER. Please consider using the existing tags.
+		<div id="tag_field" class="chips chips-autocomplete">
+			<input class="custom-class">
+		</div>
+		<button class="btn btn-success" onclick="preSubmit()">Upload</button>
 	</form>
+
 {% endblock %}
