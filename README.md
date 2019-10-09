@@ -1,11 +1,14 @@
-# AtlasDB - Simple webtool for task sharing in schools
+<p align="center">
+<h1>AtlasDB</h1>
+<h3>Simple webtool for task sharing in schools</h3>
 
-[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
-![Latest Release](https://img.shields.io/github/release/creyD/atlasDB.svg)
+[![LICENSE](https://img.shields.io/github/license/creyD/atlasDB)](https://github.com/creyD/atlasDB/blob/master/LICENSE.md)
 [![Website](https://img.shields.io/website/http/atlasdb.de.svg?down_color=red&down_message=offline&up_message=online)](http://atlasdb.de)
 ![Issues](https://img.shields.io/github/issues/creyD/atlasDB.svg)
 ![Pull Requests](https://img.shields.io/github/issues-pr/creyD/atlasDB.svg)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6553d15548bc422497db6089a9f63f9c)](https://www.codacy.com/manual/creyD/atlasDB?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=creyD/atlasDB&amp;utm_campaign=Badge_Grade)
+
+</p>
 
 ## Goals
 
@@ -14,8 +17,6 @@
 :white_check_mark: Folder structure with school_subjects as main folders and school_classes as sub folders
 
 :white_check_mark: Upload feature for PDFs, Word Documents, Animations (GIF) and simple MD files
-
-:x: Live view for Word, PDF, MD and Animations
 
 :white_check_mark: Simple search function
 
