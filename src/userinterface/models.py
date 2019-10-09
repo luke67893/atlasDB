@@ -24,7 +24,7 @@ class Task(models.Model):
     document = models.FileField(upload_to='Tasks/%Y/%m', verbose_name='Dateipfad')
     teacher = models.ForeignKey(User, related_name="teacher", on_delete=models.CASCADE, verbose_name='Lehrer')
     subject = models.ForeignKey(Subject, on_delete=models.DO_NOTHING, null=True, verbose_name='Fach')
-    stage = models.IntegerField(validators=[MaxValueValidator(13), MinValueValidator(1)], verbose_name='Klassenstufe')
+    stage = models.PositiveIntegerField(validators=[MinValueValidator(1), MaxValueValidator(13)], verbose_name='Klassenstufe')
 
     def __str__(self):
         return self.task_name
@@ -32,3 +32,25 @@ class Task(models.Model):
     class Meta:
         verbose_name = "Aufgabe"
         verbose_name_plural = "Aufgaben"
+
+
+class Tag(models.Model):
+    tag_id = models.AutoField(primary_key=True)
+    tag_name = models.CharField(max_length=255, verbose_name='Tag')
+    tag_color = models.CharField(max_length=6, verbose_name='Farbe', null=True)
+
+    def __str__(self):
+        return self.tag_name
+
+    class Meta:
+        verbose_name = "Tag"
+        verbose_name_plural = "Tags"
+
+
+class TaskTags(models.Model):
+    tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
+    task = models.ForeignKey(Task, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = "Task - Tag"
+        verbose_name_plural = "Task - Tags"
