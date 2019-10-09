@@ -14,9 +14,8 @@ import os
 
 import json
 
+
 # USER HANDLING
-
-
 def user_login(request):
     return render(request, 'userinterface/login_form.html')
 
