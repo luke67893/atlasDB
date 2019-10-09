@@ -184,11 +184,11 @@ def upload(request):
             )
 
             # Add the tags to the task
-            test = json.loads(request.POST['tags'])
-            for tag in test:
+            tags = json.loads(request.POST['tags'])
+            for tag in tags:
                 system_tag, created = Tag.objects.get_or_create(tag_name=tag)
                 TaskTags.objects.get_or_create(tag=system_tag, task=task)
-            return redirect('user_home')
+            return redirect(details, task.task_id)
 
     return render(request, 'userinterface/upload.html', {'form': form, 'tags': Tag.objects.all()})
 
