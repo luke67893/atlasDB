@@ -1,13 +1,18 @@
+# For handling errors and rendering
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, Http404
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
+from django.conf import settings
 
-from .models import Task, Subject
+# For using custom forms and models
+from .models import Task, Subject, TaskTags, Tag
 from .forms import UploadForm, UpdateTask
 
+# For handling uploaded documents
 import os
-from django.conf import settings
+
+import json
 
 # USER HANDLING
 
@@ -120,7 +125,8 @@ def details(request, taskid):
 
     context = {
         'task': task,
-        'owner': (True if str(task.teacher) == str(request.user.username) else False)
+        'owner': (True if str(task.teacher) == str(request.user.username) else False),
+        'tags': (TaskTags.objects.filter(task=task) if TaskTags.objects.filter(task=task).exists() else False)
     }
 
     return render(request, 'userinterface/details.html', context)
@@ -146,6 +152,7 @@ def search(request, keyword):
 
     return render(request, 'userinterface/taskview.html', context)
 
+
 # Edit Task
 @login_required
 def task_update(request, taskid):
@@ -153,9 +160,17 @@ def task_update(request, taskid):
     if str(task.teacher) == str(request.user.username):
         form = UpdateTask(request.POST or None, instance=task)
         if request.method == 'POST' and form.is_valid():
-            task = form.save()
+            form.save()
+            # Delete all current tags (because there could be removed tags)
+            TaskTags.objects.filter(task=task).delete()
+            # Add the new and kept tags
+            tags = json.loads(request.POST['tags'])
+            for tag in tags:
+                system_tag, created = Tag.objects.get_or_create(tag_name=tag)
+                TaskTags.objects.get_or_create(tag=system_tag, task=task)
+
             return redirect(details, taskid)
-        return render(request, 'userinterface/update.html', {'form': form, 'task': task})
+        return render(request, 'userinterface/update.html', {'form': form, 'task': task, 'tags': Tag.objects.all(), 'custom_tags': TaskTags.objects.filter(task=task)})
     raise PermissionDenied
 
 
@@ -167,7 +182,7 @@ def upload(request):
     if request.method == 'POST':
         form = UploadForm(request.POST, request.FILES)
         if form.is_valid():
-            Task.objects.get_or_create(
+            task, created = Task.objects.get_or_create(
                 teacher=request.user,
                 task_name=form.cleaned_data['task_name'],
                 task_description=form.cleaned_data['task_description'],
@@ -175,9 +190,15 @@ def upload(request):
                 stage=form.cleaned_data['stage'],
                 document=request.FILES['document']
             )
-            return redirect('user_home')
 
-    return render(request, 'userinterface/upload.html', {'form': form})
+            # Add the tags to the task
+            tags = json.loads(request.POST['tags'])
+            for tag in tags:
+                system_tag, created = Tag.objects.get_or_create(tag_name=tag)
+                TaskTags.objects.get_or_create(tag=system_tag, task=task)
+            return redirect(details, task.task_id)
+
+    return render(request, 'userinterface/upload.html', {'form': form, 'tags': Tag.objects.all()})
 
 
 @login_required
