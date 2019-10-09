@@ -1,5 +1,5 @@
 <h1 align="center">AtlasDB</h1>
-<h3 align="center">Simple webtool for task sharing in schools</h3>
+<h3 align="center">Simple webtool for task sharing for teachers</h3>
 
 <p align="center">
 <a href="https://github.com/creyD/atlasDB/blob/master/LICENSE.md"><img src="https://img.shields.io/github/license/creyD/atlasDB"></a>
