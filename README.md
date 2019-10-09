@@ -19,7 +19,7 @@
 
 :white_check_mark: Simple search function
 
-:x: Tagging for documents (custom tags)
+:white_check_mark: Tagging for documents (custom tags)
 
 
 ## Installation Guide
@@ -44,3 +44,5 @@ See [Issues](https://github.com/creyD/atlasDB/issues) tab.
 
 
 Have fun!
+
+~
