@@ -161,7 +161,7 @@ def task_update(request, taskid):
         form = UpdateTask(request.POST or None, instance=task)
         if request.method == 'POST' and form.is_valid():
             form.save()
-            # Delete all current tags
+            # Delete all current tags (because there could be removed tags)
             TaskTags.objects.filter(task=task).delete()
             # Add the new and kept tags
             tags = json.loads(request.POST['tags'])
