@@ -3,9 +3,11 @@ name: Autopep 8
 on: [push]
 
 jobs:
-  steps:
-  - name: Do the autopep8 corrections
-    uses: creyD/action_autopep8
-    with:
-      dependencies:
-        'requirements.txt'
+  build:
+    name: Autopep Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Do the autopep8 corrections
+        uses: creyD/action_autopep8@v0.5
+        with:
+          dependencies: 'requirements.txt'
