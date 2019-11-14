@@ -1,0 +1,15 @@
+name: Autopep 8
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Do the autopep8 corrections
+      uses: creyD/action_autopep8
+      with:
+        dependencies:
+          'requirements.txt'
