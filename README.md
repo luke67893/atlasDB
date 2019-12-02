@@ -4,7 +4,6 @@
 <p align="center">
 <a href="https://github.com/creyD/atlasDB/blob/master/LICENSE.md"><img src="https://img.shields.io/github/license/creyD/atlasDB"></a>
 <a href="http://atlasdb.de"><img src="https://img.shields.io/website/http/atlasdb.de.svg?down_color=red&down_message=offline&up_message=online"></a>
-<a href="https://www.codacy.com/manual/creyD/atlasDB?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=creyD/atlasDB&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/6553d15548bc422497db6089a9f63f9c"></a>
 <a href="https://github.com/creyD/atlasDB/issues"><img src="https://img.shields.io/github/issues/creyD/atlasDB.svg"></a>
 </p>
 
