@@ -24,7 +24,7 @@
 
 ### Prerequisite
 
-Make sure you have Python and PIP installed!
+Make sure you have Python 3 and PIP installed!
 
 ### Steps
 
