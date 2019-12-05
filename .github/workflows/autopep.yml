@@ -11,3 +11,5 @@ jobs:
         uses: creyD/action_autopep8@master
         with:
           dependencies: 'requirements.txt'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
