@@ -1,0 +1,15 @@
+{% extends "userinterface/main_template.html" %}
+
+{% block title %}Login to atlasDB{% endblock %}
+
+{% block headline %}Login to atlasDB{% endblock %}
+
+{% block content %}
+<form role="from" method="post" action="{% url 'user_login' %}">
+		{% csrf_token %}
+		<p>Please login now:</p>
+		{{ form.as_p }}
+	<br>
+	<button type="submit" class="btn btn-success">Sign In</button>
+</form>
+{% endblock %}

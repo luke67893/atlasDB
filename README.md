@@ -1,13 +1,11 @@
-# AtlasDB - Simple webtool for task sharing in schools
+<h1 align="center">AtlasDB</h1>
+<h3 align="center">Simple webtool for task sharing for teachers</h3>
 
-## Status
-:construction: :construction: :construction:
-
-Planning | _Building_ | Testing | Finished
-
-[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
-
-:construction: :construction: :construction:
+<p align="center">
+<a href="https://github.com/creyD/atlasDB/blob/master/LICENSE.md"><img src="https://img.shields.io/github/license/creyD/atlasDB"></a>
+<a href="http://atlasdb.de"><img src="https://img.shields.io/website/http/atlasdb.de.svg?down_color=red&down_message=offline&up_message=online"></a>
+<a href="https://github.com/creyD/atlasDB/issues"><img src="https://img.shields.io/github/issues/creyD/atlasDB.svg"></a>
+</p>
 
 ## Goals
 
@@ -17,45 +15,32 @@ Planning | _Building_ | Testing | Finished
 
 :white_check_mark: Upload feature for PDFs, Word Documents, Animations (GIF) and simple MD files
 
-:x: Live view for Word, PDF, MD and Animations
-
 :white_check_mark: Simple search function
 
-:x: Tagging for documents (custom tags)
+:white_check_mark: Tagging for documents (custom tags)
 
 
-## Technology
+## Installation Guide
 
-- Language: Django (Python, HTML, JS, CSS)
-- Database: MySQL
-- Webserver: Apache (later)
+### Prerequisite
 
-## Install Guide
+Make sure you have Python 3 and PIP installed!
 
-### Preinstall
+### Steps
 
-- Python (w/ pip)
-- Database (XAMPP, MySQL Server...)
-
-### Install testing environment
-
-- `pip install Django==2.0.2`
-- Install a DB connector for Django (i.e. `pip install mysql-python`)
-- Clone this project (`git clone https://bitbucket.org/creyd/project_atlasdb` or in SourceTree)
-- Create superusers and users
-- Adjust database connector in `settings.py`
-- Open a console window in `/atlasDB/` and execute `python manage.py makemigrations` and `python manage.py migrate` to migrate data structure to the database
-- Adjust help site in `templates/userinterface/help.html` and impressum under `templates/userinterface/impressum.html` and main site (welcome site) under `templates/userinterface/main.html`
-- Adjust bottom line watermark (YOUR COMPANY NAME) in `main_temlate.html`
-- Add your custom favicon in `/atlasDB/userinterface/static/userinterface`
-- To run the server type `python manage.py runserver`
-
-Have fun adjusting your own version
+- Clone this project and change to the folder
+- Install the requirements on your system with `pip install -r requirements.txt`
+- Migrate the data structure to your database using `python atlasDB/manage.py migrate`
+- Create a user by typing `python atlasDB/manage.py createsuperuser`
+- To run the server execute `python manage.py runserver`
 
 --> **This is just for testing but should give you a proper overview**
 
-## Known issues
+## Known Issues
 
-- When installing an environment there are problems with the dependencies! Working on a fix.
+See [Issues](https://github.com/creyD/atlasDB/issues) tab.
+
+
+Have fun!
 
 ~

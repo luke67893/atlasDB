@@ -1,0 +1,38 @@
+{% extends "userinterface/main_template.html" %}
+
+{% block title %}Task - {{ task.task_name }}{% endblock %}
+
+{% block headline %}Task - {{ task.task_name }}{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text">
+        {% if tags %}
+          <span id="tags">
+            {% for tag in tags %}
+              <span class="tag">{{ tag.tag.tag_name }}</span>
+            {% endfor %}
+          </span>
+        {% endif %}
+        <span class="card-title"><b>{{ task.task_name }}</b></span>
+          <b>Description</b> {{ task.task_description }}<br><br>
+          <b>Uploaded</b>	{{ task.uploaded_at }}<br>
+          <b>Last changed</b> {{ task.last_changed_at }}<br>
+          <b>Subject</b> <a href="{% url 'subject' task.subject.subject_id %}">{{ task.subject }}</a><br>
+          <b>Stage</b> <a href="{% url 'stage' task.stage %}">{{ task.stage }}</a><br>
+          {% if owner %}
+            <br><b>You created this task</b>
+          {% else %}
+            <br><b>Teacher</b> {{ task.teacher }}
+          {% endif %}
+      </div>
+      <div class="card-action">
+        <a href="{% url 'task_download' task.task_id %}">Download</a>
+        {% if owner %}<a href="{% url 'task_edit' task.task_id %}">Edit</a>{% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

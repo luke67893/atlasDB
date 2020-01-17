@@ -1,0 +1,62 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  <link href="{% static 'userinterface/mainstyle.css' %}" rel="stylesheet">
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'userinterface/icon.ico' %}">
+  <!-- Materialize CSS for simple pre styling -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  <!-- JQuery for easier HTML manipulation -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  {% block header %}
+  {% endblock %}
+</head>
+
+<body>
+  <nav>
+    <div class="nav-wrapper red lighten-2" style="height: 5rem;">
+      <a href="{% url 'user_home' %}"><img alt="AtlasDB" style="height: 5rem;" src="{% static '/userinterface/images/logo.png' %}"></a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+	    <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="{% url 'help' %}"><i class="material-icons">help</i></a></li>
+        {% if user.is_authenticated %}
+          <li><a href="{% url 'upload' %}"><i class="material-icons">add</i></a></li>
+          <li><a href="{% url 'search' %}"><i class="material-icons">search</i></a></li>
+          <li><a href="{% url 'stages' %}"><i class="material-icons">school</i></a></li>
+          <li><a href="{% url 'subjects' %}"><i class="material-icons">folder</i></a></li>
+          <li><a href="{% url 'my_tasks' %}"><i class="material-icons">person</i></a></li>
+          <li><a href="{% url 'user_logout' %}" id="userkey"><i class="material-icons">vpn_key</i></a></li>
+          {% else %}
+          <li><a href="{% url 'user_login' %}">Log In</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
+
+    <h2>{% block headline %}{% endblock %}</h2>
+
+    <div class="container">
+    {% block content %}
+
+    {% endblock %}
+    </div>
+
+    <footer class="page-footer red lighten-2" style="
+      position: fixed;
+      bottom:0;
+      left:0;
+      width:100%;">
+    <div class="container">
+      © AtlasDB
+      <script type="text/javascript">
+        document.write(new Date().getFullYear())
+      </script>
+      <a class="grey-text text-lighten-4 right" href="{% url 'impressum' %}">Impressum</a>
+    </div>
+  </footer>
+
+</body>
+</html>

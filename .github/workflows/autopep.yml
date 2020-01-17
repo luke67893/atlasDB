@@ -1,0 +1,15 @@
+name: Autopep 8
+
+on: [pull_request]
+
+jobs:
+  build:
+    name: Autopep Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Do the autopep8 corrections
+        uses: creyD/action_autopep8@master
+        with:
+          dependencies: 'requirements.txt'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -15,3 +15,7 @@ startDjangoDev.cmd
 .DS_Store
 
 atlasDB/static/
+
+# Virtualenv
+env/
+.env/
