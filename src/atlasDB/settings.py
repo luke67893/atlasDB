@@ -1,13 +1,20 @@
 import os
+# For generating new SECRET_KEY
+from django.core.management.utils import get_random_secret_key
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
+
+# HELPERS
+def get_env_value(env_variable):
+    if not env_variable in os.environ:
+        os.environ[env_variable] = get_random_secret_key()
+    return os.environ[env_variable]
+
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '!v6xmy*d8txtc6%n(z4v68c*j@05hcn1x7#3x5ps7i7d*t$=8o'
+SECRET_KEY = get_env_value('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -15,7 +22,6 @@ DEBUG = True
 ALLOWED_HOSTS = ['127.0.0.1', '81.169.193.89', 'atlasdb.de']
 
 # Application definition
-
 INSTALLED_APPS = [
     'userinterface',
     'django.contrib.admin',
@@ -56,10 +62,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'atlasDB.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -69,7 +73,6 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -84,9 +87,9 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
-
 LANGUAGE_CODE = 'de'
 TIME_ZONE = 'Europe/Berlin'
 USE_I18N = True
@@ -95,7 +98,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 STATIC_URL = '/static/'
 
