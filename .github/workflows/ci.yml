@@ -1,0 +1,25 @@
+name: CodeCleanup
+
+on: [pull_request]
+
+jobs:
+  cleanup_tasks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          # Make sure the actual branch is checked out when running on pull requests
+          ref: ${{ github.head_ref }}
+      - name: Applying pep-8
+        uses: creyD/action_autopep8@master
+        with:
+          options: "--max-line-length 250 -a"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Applying prettier
+        uses: creyD/prettier_action@master
+        with:
+          prettier_options: --write **/*.js --print-width 160
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
